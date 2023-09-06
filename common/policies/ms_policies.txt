@@ -1,0 +1,53 @@
+defense_doctrine = {
+	potential = {
+		has_tradition = tr_unyielding_bulwark_of_harmony
+	}
+
+	allow = {
+		is_at_war = no
+	}
+
+	option = {
+		name = "home_territory_defense"
+
+		policy_flags = {}
+		modifier = {
+			ship_home_territory_fire_rate_mult = 1.00
+			ship_fire_rate_mult = -0.50
+		}
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "moren"
+
+		policy_flags = {}
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = "attack_defense"
+
+		policy_flags = {}
+		modifier = {
+			ship_home_territory_fire_rate_mult = -0.50
+			ship_fire_rate_mult = 0.25
+		}
+
+		AI_weight = {
+			factor = 1
+		}
+	}
+}

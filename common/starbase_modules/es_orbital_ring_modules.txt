@@ -1,0 +1,236 @@
+###########
+# Starring Ring Module
+###########
+
+
+#MK1 turret
+orbital_ring_gun_battery_1 = {
+	section = "GUN_BATTERY_ORBITAL_RING_SECTION_1"
+	icon = GFX_spaceport_modules_1
+	construction_days = 360
+
+	potential = {
+		is_orbital_ring = yes
+		has_starbase_size = orbital_ring_tier_2
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 200
+		}
+
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	station_modifier = {
+		ship_hull_mult = 0.20
+		ship_armor_mult = 0.20
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	triggered_station_modifier = {
+		potential = {
+			planet = {
+				exists = owner.overlord
+				has_holding = {
+					holding = holding_orbital_assembly_complex
+					owner = owner.overlord
+				}
+			}
+		}
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				OR = {
+					is_preferred_weapons = weapon_type_energy
+					is_preferred_weapons = weapon_type_kinetic
+				}
+			}
+		}
+	}
+
+	show_in_tech = "tech_mass_drivers_1"
+}
+
+#MK2 turret
+orbital_ring_gun_battery_2 = {
+	section = "GUN_BATTERY_ORBITAL_RING_SECTION_2"
+	icon = GFX_spaceport_modules_2
+	construction_days = 540
+
+	potential = {
+		is_orbital_ring = yes
+		has_starbase_size = orbital_ring_tier_3
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 300
+		}
+
+		upkeep = {
+			energy = 7
+		}
+	}
+
+	station_modifier = {
+		ship_hull_mult = 0.20
+		ship_armor_mult = 0.20
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	triggered_station_modifier = {
+		potential = {
+			planet = {
+				exists = owner.overlord
+				has_holding = {
+					holding = holding_orbital_assembly_complex
+					owner = owner.overlord
+				}
+			}
+		}
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				OR = {
+					is_preferred_weapons = weapon_type_energy
+					is_preferred_weapons = weapon_type_kinetic
+				}
+			}
+		}
+	}
+
+	show_in_tech = "tech_mass_drivers_1"
+}
+
+# MK1 aircraft
+orbital_ring_hangar_bay_1 = {
+	icon = "GFX_hangar_bay_1"
+	section = "ANGAR_ORBITAL_RING_SECTION_1"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		is_orbital_ring = yes
+		owner = { has_technology = tech_strike_craft_1 }
+		has_starbase_size = orbital_ring_tier_2
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 150
+		}
+
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	station_modifier = {
+		ship_hull_mult = 0.20
+		ship_armor_mult = 0.20
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	triggered_station_modifier = {
+		potential = {
+			planet = {
+				exists = owner.overlord
+				has_holding = {
+					holding = holding_orbital_assembly_complex
+					owner = owner.overlord
+				}
+			}
+		}
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = { is_preferred_weapons = weapon_type_strike_craft }
+		}
+	}
+
+	show_in_tech = "tech_strike_craft_1"
+}
+
+# MK2 aircraft
+orbital_ring_hangar_bay_2 = {
+	icon = "GFX_hangar_bay_2"
+	section = "ANGAR_ORBITAL_RING_SECTION_2"
+	construction_days = 540
+
+	potential = {
+		exists = owner
+		is_orbital_ring = yes
+		owner = { has_technology = tech_strike_craft_1 }
+		has_starbase_size = orbital_ring_tier_3
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 300
+		}
+
+		upkeep = {
+			energy = 7
+		}
+	}
+
+	station_modifier = {
+		ship_hull_mult = 0.20
+		ship_armor_mult = 0.20
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	triggered_station_modifier = {
+		potential = {
+			planet = {
+				exists = owner.overlord
+				has_holding = {
+					holding = holding_orbital_assembly_complex
+					owner = owner.overlord
+				}
+			}
+		}
+		starbase_defense_platform_capacity_add = 1
+	}
+
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = { is_preferred_weapons = weapon_type_strike_craft }
+		}
+	}
+
+	show_in_tech = "tech_strike_craft_1"
+}

@@ -1,0 +1,833 @@
+#The default rule is that buildings can only build one
+
+#Dockyard specialization
+shipyard_enhance = {
+	icon = GFX_shipyard_enhance
+	section = "ASSEMBLYYARD_STARBASE_SECTION"
+	construction_days = 720
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_shipyard_enhance
+		}
+	}
+	possible = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = anchorage_enhance
+			has_starbase_building = war_enhance
+			has_starbase_building = hangar_enhance
+			has_starbase_building = sturdy_enhance
+		}
+	}
+
+	station_modifier = {
+		starbase_shipyard_build_speed_mult = 1.5
+		starbase_shipyard_build_cost_mult = -0.20
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 100
+			owner = {
+				OR = {
+					count_owned_starbase = {
+						count = 0
+						limit = { has_starbase_module = shipyard }
+					}
+					AND = {
+						num_starbases >= 4
+						count_owned_starbase = {
+							count < 2
+							limit = { has_starbase_module = shipyard }
+						}
+					}
+					AND = {
+						num_starbases >= 9
+						count_owned_starbase = {
+							count < 3
+							limit = { has_starbase_module = shipyard }
+						}
+					}
+					AND = {
+						num_starbases >= 15
+						count_owned_starbase = {
+							count < 4
+							limit = { has_starbase_module = shipyard }
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			has_starbase_module = shipyard
+			count_starbase_modules = {
+				count < 2
+				type = shipyard
+			}
+		}
+		modifier = {
+			factor = 3
+			has_starbase_module = shipyard
+			count_starbase_modules = {
+				count < 4
+				type = shipyard
+			}
+		}
+	}
+
+	#在科技界面显示解锁部件
+	show_in_tech = "tech_shipyard_enhance"
+}
+
+#Anchorage specialization
+anchorage_enhance = {
+	icon =GFX_anchorage_enhance
+	section = "ASSEMBLYYARD_STARBASE_SECTION"
+	construction_days = 720
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 400
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_anchorage_enhance
+		}
+	}
+
+	possible = {
+		has_starbase_building = naval_logistics_office
+		NOR = {
+			has_starbase_building = shipyard_enhance
+			has_starbase_building = war_enhance
+			has_starbase_building = hangar_enhance
+			has_starbase_building = sturdy_enhance
+		}
+	}
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+
+	#在科技界面显示解锁部件
+	show_in_tech = "tech_anchorage_enhance"
+}
+
+#Battery specialization
+war_enhance = {
+	icon = GFX_war_enhance
+	construction_days = 720
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+	station_modifier = {
+		ship_fire_rate_mult = 0.5
+		ship_weapon_damage= 0.5
+	}
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_starbase_6
+		}
+	}
+
+	possible = {
+		NOR = {
+			has_starbase_building = shipyard_enhance
+			has_starbase_building = anchorage_enhance
+			has_starbase_building = hangar_enhance
+			has_starbase_building = sturdy_enhance
+		}
+		has_starbase_size >= starbase_1
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				OR = {
+					is_preferred_weapons = weapon_type_energy
+					is_preferred_weapons = weapon_type_kinetic
+				}
+			}
+		}
+	}
+
+	#在科技界面显示解锁部件
+	#show_in_tech = "tech_war_enhance"
+}
+
+#Aircraft specialization
+hangar_enhance = {
+	icon = GFX_hangar_enhance
+	construction_days = 720
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+	station_modifier = {
+		weapon_type_strike_craft_weapon_damage_mult = 1.0
+		weapon_type_strike_craft_weapon_fire_rate_mult = 1.0
+	}
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_starbase_6
+		}
+	}
+	possible = {
+		NOR = {
+			has_starbase_building = shipyard_enhance
+			has_starbase_building = anchorage_enhance
+			has_starbase_building = war_enhance
+			has_starbase_building = sturdy_enhance
+		}
+		has_starbase_size >= starbase_1
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				OR = {
+					is_preferred_weapons = weapon_type_energy
+					is_preferred_weapons = weapon_type_kinetic
+				}
+			}
+		}
+	}
+
+	#在科技界面显示解锁部件
+	#show_in_tech = "tech_war_enhance"
+}
+
+#Defensive specialization
+sturdy_enhance = {
+	icon = GFX_sturdy_enhance
+	construction_days = 720
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+	station_modifier = {
+		ship_armor_mult = 1.0
+		ship_hull_mult = 1.0
+		ship_shield_mult = 1.0
+	}
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_starbase_6
+		}
+	}
+	possible = {
+		NOR = {
+			has_starbase_building = shipyard_enhance
+			has_starbase_building = anchorage_enhance
+			has_starbase_building = war_enhance
+			has_starbase_building = hangar_enhance
+		}
+		has_starbase_size >= starbase_1
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				OR = {
+					is_preferred_weapons = weapon_type_energy
+					is_preferred_weapons = weapon_type_kinetic
+				}
+			}
+		}
+	}
+
+	#在科技界面显示解锁部件
+	show_in_tech = "tech_war_enhance"
+}
+###################
+###################
+###################
+
+
+#Defense platforms +20
+defense_enhance = {
+	icon = GFX_defense_enhance
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = { has_technology = tech_defense_enhance }
+	}
+
+	possible = {
+		has_starbase_building = defense_grid
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	station_modifier = {
+		starbase_defense_platform_capacity_add = 20
+	}
+
+	show_in_tech = "tech_defense_enhance"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+	}
+}
+
+# Maintenance centers Maintenance fee - 50%
+maintenance_center = {
+	icon = GFX_maintenance_center
+	construction_days = 720
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_maintenance_center
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	orbit_modifier = {
+		ship_orbit_upkeep_mult = -0.5
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+	}
+
+	show_in_tech = "tech_maintenance_center"
+}
+
+#phase radar Attack range +300% Tracking +5
+phase_radar = {
+	icon = GFX_phase_radar
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_phase_radar
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 2000
+		}
+
+		upkeep = {
+			energy = 30
+		}
+	}
+
+	station_modifier = {
+		ship_weapon_range_mult = 3.00
+		ship_tracking_add = 5
+	}
+
+	defense_platform_modifier = {
+		ship_weapon_range_mult = 3.00
+		ship_tracking_add = 5
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+	}
+
+	show_in_tech = "tech_phase_radar"
+}
+
+#Particle Turbulence Device Astral Shield - 100
+particle_chaos = {
+	icon = GFX_particle_chaos
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_particle_chaos
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	equipped_component = "STARBASE_PARTICLE_CHAOS"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_particle_chaos"
+}
+
+# Plasma Cold Chain Technology Starbase
+# and Defense Platforms Attack Speed +50
+plasma_coldchain  = {
+	icon = GFX_plasma_coldchain
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_plasma_coldchain
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	station_modifier = {
+		ship_fire_rate_mult = 0.5
+	}
+	defense_platform_modifier = {
+		ship_fire_rate_mult = 0.5
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_plasma_coldchain"
+}
+
+# Engineering Department
+engineering_department  = {
+	icon = GFX_engineering_department
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_engineering_department
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+
+		upkeep = {
+			energy = 30
+		}
+	}
+
+	station_modifier = {
+		starbase_defensive_war_ship_build_speed_mult = 1.00
+		starbase_building_build_speed_mult = 1.00
+		starbase_module_build_speed_mult = 1.00
+		starbase_upgrade_speed_mult = 1.00
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_engineering_department"
+}
+
+# Repair sector +3% per day
+living_metal_department  = {
+	icon = GFX_living_metal_department
+	construction_days = 900
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_mine_living_metal
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 2500
+			sr_living_metal = 1000
+		}
+
+		upkeep = {
+			sr_living_metal = 3
+		}
+	}
+
+	station_modifier = {
+		ship_hull_regen_add_perc = 3
+		ship_armor_regen_add_perc = 3
+		ship_shield_regen_add_perc = 3
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_mine_living_metal"
+}
+
+
+##########
+## halo construction (refers the creation of a halo around the body of the building)
+##########
+
+
+#Command Center Enhancement Rate of Fire +20 Damage +20
+command_center_enhance = {
+	icon = GFX_command_center_1
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_command_matrix_1
+		}
+	}
+	possible = {
+		has_starbase_building = command_center
+		has_starbase_size >= starbase_1
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	equipped_component = "STARBASE_AURA_COMMAND_CENTER_1"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_command_matrix_1"
+}
+
+#Jamming field generator enhancement. Shield -50.
+disruption_field_enhance = {
+	icon = GFX_disruption_field_enhance
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_disruption_field_enhance
+		}
+	}
+	possible = {
+		has_starbase_building = disruption_field
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	equipped_component = "STARBASE_AURA_DISRUPTION_FIELD_1"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_disruption_field_enhance"
+}
+
+#Gravitational boundaries. -90% chance of combat evacuation.
+gravity_edge = {
+	icon = GFX_gravity_edge
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_gravity_edge
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	equipped_component = "STARBASE_GRAVITY_EDGE"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_gravity_edge"
+}
+
+#Nebula Wave Meter Sublight Speed -40 Dodge 70 Tracking -10
+nebula_fluctuator = {
+	icon = GFX_nebula_fluctuator
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_nebula_fluctuator
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+
+		upkeep = {
+			energy = 20
+		}
+	}
+
+	equipped_component = "STARBASE_NEBULA_FLUCTUATOR"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_nebula_fluctuator"
+}
+
+#Gravitational Beacon Dodge +30 Combat Evacuation Chance +50
+gravity_beacon = {
+	icon = GFX_gravity_beacon
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_gravity_beacon
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	equipped_component = "STARBASE_GRAVITY_BEACON"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_gravity_beacon"
+}
+
+#Subspace energy supply Shield +50
+subspace_energy = {
+	icon = GFX_subspace_energy
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_subspace_energy
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 2000
+			sr_zro = 500
+		}
+
+		upkeep = {
+			sr_zro = 5
+			energy = 15
+		}
+	}
+
+	equipped_component = "STARBASE_SUBSPACE_ENERGY"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_subspace_energy"
+}
