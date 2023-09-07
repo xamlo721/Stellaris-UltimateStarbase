@@ -1,0 +1,53 @@
+###########
+# Ultimate Starbase levels
+###########
+
+# override classic citadel
+starbase_level_citadel = {
+	ship_size = starbase_citadel
+	next_level = starbase_level_stronghold                              # override
+	level_weight = 4
+	ai_weight = { weight = 5 }
+	potential_home_base = yes
+}
+
+################################################################################
+
+starbase_level_stronghold = {
+	ship_size = starbase_stronghold
+	next_level = starbase_level_headquarters
+	level_weight = 5
+	ai_weight = { weight = 6 }
+	potential_home_base = yes
+}
+
+starbase_level_headquarters = {
+	ship_size = starbase_headquarters
+  next_level = starbase_level_1
+	level_weight = 6
+	ai_weight = { weight = 7 }
+	potential_home_base = yes
+}
+
+starbase_level_1 = {
+	ship_size = starbase_1
+	next_level = starbase_level_2
+	level_weight = 7
+	ai_weight = { weight = 8 }
+	potential_home_base = yes
+}
+
+starbase_level_2 = {
+	ship_size = starbase_2
+	next_level = starbase_level_3
+	level_weight = 8
+	ai_weight = { weight = 9 }
+	potential_home_base = yes
+}
+
+starbase_level_3 = {
+	ship_size = starbase_3
+	level_weight = 9
+	ai_weight = { weight = 10 }
+	potential_home_base = yes
+}
