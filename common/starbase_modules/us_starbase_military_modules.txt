@@ -1,5 +1,149 @@
+###########
+# Ultimate Starbase millitary modules
+###########
 
+pd_battery = {
+	section = "PD_STARBASE_SECTION"
+	icon = "GFX_starbase_pd_battery"
+	construction_days = 150
+	resources = {
+		category = starbase_modules
+		cost = { alloys = 50 }
+		upkeep = { energy = 1 }
+	}
+	station_modifier = {
+		ship_hull_mult = 0.01
+		ship_armor_mult = 0.01
+		starbase_trade_protection_add = 3
+	}
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				has_technology = tech_pd_tracking_1
+				has_technology = tech_pd_tracking_2
+				has_technology = tech_pd_tracking_3
+				has_technology = tech_flak_batteries_1
+				has_technology = tech_flak_batteries_2
+				has_technology = tech_flak_batteries_3
+			}
+		}
+		has_starbase_size >= starbase_starport #not for outposts
+	}
+	ai_weight = {
+		weight = 20
+		modifier = { factor = 2.5 OR = { has_starbase_module = gun_battery has_starbase_module = missile_battery has_starbase_module = hangar_bay } }
+		modifier = { factor = 0.5 count_starbase_modules = { type = pd_battery count > 1 } }
+	}
+}
 
+large_battery = {
+	section = "LARGE_STARBASE_SECTION"
+	icon = "GFX_starbase_large_battery"
+	construction_days = 240
+	resources =	{
+		category = starbase_modules
+		cost = { alloys = 125 }
+		upkeep = { energy = 1 }
+	}
+	station_modifier = {
+		ship_hull_mult = 0.03
+		ship_armor_mult = 0.03
+		starbase_trade_protection_range_add = 1
+		starbase_trade_protection_add = 6
+	}
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	potential = {
+		has_starbase_size >= starbase_starfortress
+		count_starbase_modules = { type = large_battery count < 10 }
+	}
+	ai_weight = {
+		weight = 20
+		modifier = { factor = 2.5 OR = { has_starbase_module = gun_battery has_starbase_module = missile_battery has_starbase_module = hangar_bay } }
+		modifier = { factor = 0 has_starbase_size < starbase_starfortress }
+		modifier = { factor = 0.5 count_starbase_modules = { type = large_battery count > 1 } }
+		modifier = { factor = 0 count_starbase_modules = { type = large_battery count >= 10 } }
+	}
+}
+
+xl_battery = {
+	section = "EXTRA_LARGE_STARBASE_SECTION"
+	icon = "GFX_starbase_xl_battery"
+	construction_days = 320
+	resources ={
+		category = starbase_modules
+		cost = { alloys = 300 }
+		upkeep = { energy = 1 }
+	}
+	station_modifier = {
+		ship_hull_mult = 0.05
+		ship_armor_mult = 0.05
+		starbase_trade_protection_range_add = 1
+		starbase_trade_protection_add = 8
+	}
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				has_technology = tech_energy_lance_1
+				has_technology = tech_energy_lance_2
+				has_technology = tech_arc_emitter_1
+				has_technology = tech_arc_emitter_2
+				has_technology = tech_mass_accelerator_1
+				has_technology = tech_mass_accelerator_2
+			}
+		}
+		has_starbase_size >= starbase_citadel
+		count_starbase_modules = { type = xl_battery count < 6 }
+		is_orbital_ring = no
+	}
+	ai_weight = {
+		weight = 50
+		modifier = { factor = 2.0 has_starbase_module = large_battery }
+		modifier = { factor = 0 has_starbase_size < starbase_citadel }
+		modifier = { factor = 0.5 count_starbase_modules = { type = xl_battery count > 1 } }
+		modifier = { factor = 0.5 count_starbase_modules = { type = xl_battery count > 2 } }
+		modifier = { factor = 0 count_starbase_modules = { type = xl_battery count >= 6 } }
+	}
+}
+
+titanic_battery = {
+	section = "TITANIC_STARBASE_SECTION"
+	icon = "GFX_starbase_titanic_battery"
+	construction_days = 420
+	resources = {
+		category = starbase_modules
+		cost = { alloys = 750 }
+		upkeep = { energy = 1 }
+	}
+	station_modifier = {
+		ship_hull_mult = 0.08
+		ship_armor_mult = 0.08
+		starbase_trade_protection_range_add = 2
+		starbase_trade_protection_add = 12
+	}
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	potential = {
+		exists = owner owner = { has_technology = tech_titans }
+		has_starbase_size >= starbase_stronghold
+		count_starbase_modules = { type = titanic_battery count < 2 }
+		is_orbital_ring = no
+	}
+	ai_weight = {
+		weight = 30
+		modifier = { factor = 2.0 has_starbase_module = xl_battery }
+		modifier = { factor = 0 has_starbase_size < starbase_stronghold }
+		modifier = { factor = 0.5 count_starbase_modules = { type = titanic_battery count > 1 } }
+		modifier = { factor = 0 count_starbase_modules = { type = titanic_battery count >= 2 } }
+	}
+	show_in_tech = "tech_titans"
+}
 
 gun_battery_1 = {
 	section = "BATTERY_STARBASE_SECTION_1"
@@ -142,7 +286,6 @@ gun_battery_3 = {
 	show_in_tech = "tech_mass_drivers_1"
 }
 
-#XL slot
 xl_battery_1 = {
 	section = "XL_BATTERY_STARBASE_SECTION_1"
 	icon = GFX_xl_battery_1
@@ -388,7 +531,6 @@ hangar_bay_3 = {
 	}
 }
 
-#shield
 starbase_shield = {
 	icon = GFX_starbase_shield
 	section = "ANCHORAGE_STARBASE_SECTION"
@@ -424,7 +566,34 @@ starbase_shield = {
 	show_in_tech = "tech_shields_5"
 }
 
-#armor
+shield_module = {
+	section = "ANCHORAGE_STARBASE_SECTION"
+	icon = "GFX_starbase_shield_module"
+	construction_days = 180
+	resources = {
+		category = starbase_modules
+		cost = { alloys = 75 }
+		upkeep = { energy = 1 }
+	}
+	station_modifier = {
+		ship_shield_add = 6000
+		ship_shield_regen_add_static = 1.0
+	}
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = yes
+	potential = {
+		count_starbase_modules = { type = shield_module count < 4 }
+		has_starbase_size >= starbase_starport #not for outposts
+		is_orbital_ring = no
+	}
+	ai_weight = {
+		weight = 20
+		modifier = { factor = 0.5 count_starbase_modules = { type = shield_module count > 1 } }
+		modifier = { factor = 0.5 count_starbase_modules = { type = shield_module count > 2 } }
+		modifier = { factor = 0 count_starbase_modules = { type = shield_module count >= 6 } }
+	}
+}
+
 starbase_armor = {
 	icon = GFX_starbase_armor
 	section = "ANCHORAGE_STARBASE_SECTION"
@@ -450,4 +619,30 @@ starbase_armor = {
 	}
 
 	show_in_tech = "tech_ship_armor_5"
+}
+
+armor_module = {
+	section = "ANCHORAGE_STARBASE_SECTION"
+	icon = "GFX_starbase_armor_module"
+	construction_days = 180
+	resources ={
+		category = starbase_modules
+		cost = { alloys = 75 }
+	}
+	station_modifier = {
+		ship_armor_add = 8000
+	}
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = yes
+	potential = {
+		count_starbase_modules = { type = armor_module count < 4 }
+		has_starbase_size >= starbase_starport #not for outposts
+		is_orbital_ring = no
+	}
+	ai_weight = {
+		weight = 20
+		modifier = { factor = 0.5 count_starbase_modules = { type = armor_module count > 1 } }
+		modifier = { factor = 0.5 count_starbase_modules = { type = armor_module count > 2 } }
+		modifier = { factor = 0 count_starbase_modules = { type = armor_module count >= 10 } }
+	}
 }
