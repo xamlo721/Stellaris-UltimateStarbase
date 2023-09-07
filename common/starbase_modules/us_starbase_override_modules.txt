@@ -1,12 +1,21 @@
-# possible section models:
-# SHIPYARD_STARBASE_SECTION
-# REFINERY_STARBASE_SECTION
-# SCIENCE_STARBASE_SECTION
-# HANGAR_STARBASE_SECTION
-# ASSEMBLYYARD_STARBASE_SECTION
-#
+################################
+##  Module overrides original
+##
+## + shipyard
+## + anchorage
+## + gun_battery
+## + missile_battery
+## + hangar_bay
+## + solar_panel_network
+## + trading_hub
+## - detection_array
+## - archaeo_rampart
+##
+################################
 
-# override
+
+
+# override classic shipyard
 shipyard = {
 	icon = "GFX_starbase_shipyard"
 	section = "ASSEMBLYYARD_STARBASE_SECTION"
@@ -85,7 +94,7 @@ shipyard = {
 	}
 }
 
-# override
+#override classic anchorage
 anchorage = {
 	icon = "GFX_starbase_anchorage"
 	section = "ANCHORAGE_STARBASE_SECTION"
@@ -113,6 +122,11 @@ anchorage = {
 		potential = { has_starbase_building = naval_logistics_office }
 		country_naval_cap_add = 2
 	}
+	# Mod Building Trigger
+	triggered_country_modifier = {																			# override
+		potential = { has_starbase_building = anchorage_enhance }					# override
+		country_naval_cap_add = 4																					# override
+	}
 	ai_build_at_chokepoint = no													# override ai_build_at_chokepoint = <yes/no> - If no, AI will avoid building this module at a chokepoint.
 	ai_build_outside_chokepoint = yes										# override ai_build_outside_chokepoint = <yes/no> - If no, AI will avoid building this module outside a chokepoint.
 
@@ -128,13 +142,14 @@ anchorage = {
 	}
 }
 
-# override
+# override classic turret
 gun_battery = {
 	section = "BATTERY_STARBASE_SECTION"
-	# icon = GFX_spaceport_modules 								# override
+	# icon = GFX_spaceport_modules 																			# override
 	construction_days = 180
 
 	potential = {
+		has_starbase_size < starbase_starfortress													# override
 		is_orbital_ring = no
 	}
 
@@ -150,11 +165,11 @@ gun_battery = {
 	}
 
 	station_modifier = {
-		ship_hull_mult = 0.01														# override
-		ship_armor_mult = 0.01													# override
+		ship_hull_mult = 0.01																							# override
+		ship_armor_mult = 0.01																						# override
 		starbase_trade_protection_range_add = 1
 		starbase_trade_protection_add = 5
-		# starbase_defense_platform_capacity_add = 1		# override
+		# starbase_defense_platform_capacity_add = 1											# override
 	}
 
 
@@ -171,19 +186,22 @@ gun_battery = {
 			}
 		}
 	}
+
 	show_in_tech = "tech_mass_drivers_1"
 }
 
-# override
+# override classic missile battery
 missile_battery = {
 	section = "MISSILE_STARBASE_SECTION"
 	icon = "GFX_starbase_missile_battery"
 	construction_days = 180
 
 	potential = {
-		exists = owner
-		owner = { has_technology = tech_torpedoes_1 }
-		is_orbital_ring = no
+			exists = owner
+			owner = { has_technology = tech_torpedoes_1 }
+			has_starbase_size < starbase_1																	# override
+			# is_orbital_ring = no
+
 	}
 
 	resources = {
@@ -205,8 +223,8 @@ missile_battery = {
 		# starbase_defense_platform_capacity_add = 1			# override
 	}
 
-
-
+	ai_build_at_chokepoint = yes												# override
+	ai_build_outside_chokepoint = no										# override
 	ai_weight = {
 		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
 		modifier = {
@@ -216,10 +234,10 @@ missile_battery = {
 		}
 	}
 
-	show_in_tech = "tech_torpedoes_1"
+	show_in_tech = "tech_missiles_1"
 }
 
-# override
+# override classic Hangar
 hangar_bay = {
 	icon = "GFX_starbase_hangar_bay"
 	section = "HANGAR_STARBASE_SECTION"
@@ -227,7 +245,10 @@ hangar_bay = {
 
 	potential = {
 		exists = owner
-		owner = { has_technology = tech_strike_craft_1 }
+		owner = {
+			has_technology = tech_strike_craft_1
+		}
+		has_starbase_size < starbase_starfortress													# override
 		is_orbital_ring = no
 	}
 
@@ -250,6 +271,7 @@ hangar_bay = {
 		# starbase_defense_platform_capacity_add = 1									# override
 	}
 
+	ai_build_outside_chokepoint = yes																# override
 	ai_weight = {
 		weight = 10  																									# override
 		modifier = {
@@ -258,13 +280,15 @@ hangar_bay = {
 			owner = { is_preferred_weapons = weapon_type_strike_craft }
 		}
 	}
+
 	show_in_tech = "tech_strike_craft_1"
 }
 
-# override
+
+# override classic solar panel network
 solar_panel_network = {
 	icon = "GFX_solar_panel_network"
-	section = "REFINERY_STARBASE_SECTION"
+	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
 	initial = yes
 
@@ -320,7 +344,6 @@ solar_panel_network = {
 		}
 	}
 
-
 	ai_build_at_chokepoint = no		# override ai_build_at_chokepoint = <yes/no> - If no, AI will avoid building this module at a chokepoint.
 
 	ai_weight = {
@@ -328,7 +351,7 @@ solar_panel_network = {
 	}
 }
 
-# override
+# override classic trading hub
 trading_hub = {
 	icon = "GFX_starbase_trading_hub"
 	section = "REFINERY_STARBASE_SECTION"
@@ -382,115 +405,4 @@ trading_hub = {
 			}
 		}
 	}
-}
-
-detection_array = {
-	icon = "GFX_spaceport_module_detecton_array"
-	section = "SCIENCE_STARBASE_SECTION"
-	construction_days = 180
-
-	potential = {
-		exists = owner
-		owner = { has_technology = tech_detection_array }
-		is_orbital_ring = no
-	}
-
-	possible = {
-		NOT = {
-			has_starbase_building = dark_matter_listening_post
-		}
-	}
-
-	resources = {
-		category = starbase_modules
-		cost = {
-			alloys = 100
-		}
-
-		upkeep = {
-			energy = 1
-		}
-	}
-
-	station_modifier = {
-		ship_cloaking_detection_add = 1
-	}
-
-	ai_build_at_chokepoint = yes
-	ai_build_outside_chokepoint = yes
-	ai_weight = {
-		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
-		modifier = {
-			add = 1000
-			owner = {
-				NOT = {
-					any_owned_starbase = {
-						has_starbase_module = detection_array
-					}
-				}
-			}
-		}
-	}
-
-	show_in_tech = "tech_detection_array"
-}
-
-archaeo_rampart = {
-	section = "ANCHORAGE_STARBASE_SECTION"
-	icon = GFX_starbase_archaeo_rampart
-	construction_days = 180
-
-	potential = {
-		is_orbital_ring = no
-		owner = { has_technology = tech_archaeo_rampart }
-	}
-
-	resources = {
-		category = starbase_modules
-		cost = {
-			alloys = 50
-			minor_artifacts = @minor_artifacts_cost_xl
-		}
-
-		upkeep = {
-			energy = 1
-		}
-	}
-
-	triggered_station_modifier = {
-		potential = {
-			owner = {
-				NOT = { has_ascension_perk = ap_archaeoengineers }
-			}
-		}
-		ship_hull_mult = 0.15
-		ship_armor_mult = 0.15
-		starbase_defense_platform_capacity_add = 2
-	}
-
-	triggered_station_modifier = {
-		potential = {
-			owner = {
-				has_ascension_perk = ap_archaeoengineers
-			}
-		}
-		ship_hull_mult = 0.15
-		ship_armor_mult = 0.20
-		ship_armor_hardening_add = 0.10
-		starbase_defense_platform_capacity_add = 2
-	}
-
-	custom_tooltip = sm_archaeo_rampart_desc_modifier
-
-	defense_platform_modifier = {
-		ship_weapon_damage = 0.05
-		ship_hull_mult = 0.05
-	}
-
-	ai_weight = {
-		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
-	}
-
-
-	show_in_tech = "tech_archaeo_rampart"
 }
