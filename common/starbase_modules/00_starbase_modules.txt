@@ -6,13 +6,17 @@
 # ASSEMBLYYARD_STARBASE_SECTION
 #
 
+# override
 shipyard = {
 	icon = "GFX_starbase_shipyard"
 	section = "ASSEMBLYYARD_STARBASE_SECTION"
 	construction_days = 180
 	initial = yes
-	potential = { is_orbital_ring = no }
-	
+
+	potential = {
+		is_orbital_ring = no
+	}
+
 	resources = {
 		category = starbase_modules
 		cost = {
@@ -24,71 +28,138 @@ shipyard = {
 		}
 	}
 
-	station_modifier = { starbase_shipyard_capacity_add = 1 }
+	station_modifier = {
+		starbase_shipyard_capacity_add = 1
+	}
 	triggered_station_modifier = {
 		potential = { has_starbase_building = irassian_naval_yards }
 		starbase_shipyard_capacity_add = 1
 	}
-	ai_build_at_chokepoint = no
-	ai_build_outside_chokepoint = yes
+
+	ai_build_at_chokepoint = no							# override ai_build_at_chokepoint = <yes/no> - If no, AI will avoid building this module at a chokepoint.
+	ai_build_outside_chokepoint = yes				# override ai_build_outside_chokepoint = <yes/no> - If no, AI will avoid building this module outside a chokepoint.
+
 	ai_weight = {
 		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
 		modifier = {
 			factor = 100
 			owner = {
 				OR = {
-					count_owned_starbase = { count = 0 limit = { has_starbase_module = shipyard } }
+					count_owned_starbase = {
+						count = 0
+						limit = { has_starbase_module = shipyard }
+					}
 					AND = {
 						controlled_systems > 30
-						count_owned_starbase = { count < 2 limit = { has_starbase_module = shipyard } }
+						count_owned_starbase = {
+							count < 2
+							limit = { has_starbase_module = shipyard }
+						}
 					}
 					AND = {
 						controlled_systems > 60
-						count_owned_starbase = { count < 3 limit = { has_starbase_module = shipyard } }
+						count_owned_starbase = {
+							count < 3
+							limit = { has_starbase_module = shipyard }
+						}
 					}
 				}
 			}
 		}
-		modifier = { factor = 3 has_starbase_module = shipyard count_starbase_modules = { count < 2 type = shipyard } }
-		modifier = { factor = 3 has_starbase_module = shipyard count_starbase_modules = { count < 4 type = shipyard } }
+		modifier = {
+			factor = 3
+			has_starbase_module = shipyard
+			count_starbase_modules = {
+				count < 2
+				type = shipyard
+			}
+		}
+		modifier = {
+			factor = 3
+			has_starbase_module = shipyard
+			count_starbase_modules = {
+				count < 4
+				type = shipyard
+			}
+		}
 	}
 }
 
+# override
 anchorage = {
 	icon = "GFX_starbase_anchorage"
 	section = "ANCHORAGE_STARBASE_SECTION"
 	construction_days = 180
-	potential = { is_orbital_ring = no }
+
+	potential = {
+		is_orbital_ring = no
+	}
+
 	resources = {
 		category = starbase_modules
-		cost = { alloys = 50 }
-		upkeep = { energy = 1 }
+		cost = {
+			alloys = 50
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
-	country_modifier = { country_naval_cap_add = 4 }
-	triggered_country_modifier = { potential = { has_starbase_building = naval_logistics_office } country_naval_cap_add = 2 }
-	ai_build_at_chokepoint = no
-	ai_build_outside_chokepoint = yes
-	ai_weight = { weight = 100 modifier = { factor = 2 count_starbase_modules = { type = anchorage count < 2 } } }
+
+	country_modifier = {
+		country_naval_cap_add = 4
+	}
+	triggered_country_modifier = {
+		potential = { has_starbase_building = naval_logistics_office }
+		country_naval_cap_add = 2
+	}
+	ai_build_at_chokepoint = no													# override ai_build_at_chokepoint = <yes/no> - If no, AI will avoid building this module at a chokepoint.
+	ai_build_outside_chokepoint = yes										# override ai_build_outside_chokepoint = <yes/no> - If no, AI will avoid building this module outside a chokepoint.
+
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+		modifier = {
+			factor = 2
+			count_starbase_modules = {
+				type = anchorage
+				count < 2
+			}
+		}
+	}
 }
 
+# override
 gun_battery = {
 	section = "BATTERY_STARBASE_SECTION"
+	# icon = GFX_spaceport_modules 								# override
 	construction_days = 180
-	potential = { is_orbital_ring = no }
+
+	potential = {
+		is_orbital_ring = no
+	}
+
 	resources = {
 		category = starbase_modules
-		cost = { alloys = 50 }
-		upkeep = { energy = 1 }
+		cost = {
+			alloys = 50
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
+
 	station_modifier = {
-		ship_hull_mult = 0.01
-		ship_armor_mult = 0.01
+		ship_hull_mult = 0.01														# override
+		ship_armor_mult = 0.01													# override
 		starbase_trade_protection_range_add = 1
 		starbase_trade_protection_add = 5
-		#starbase_defense_platform_capacity_add = 1
+		# starbase_defense_platform_capacity_add = 1		# override
 	}
+
+
 	ai_weight = {
-		weight = 100
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
 		modifier = {
 			factor = 2
 			exists = owner
@@ -103,29 +174,41 @@ gun_battery = {
 	show_in_tech = "tech_mass_drivers_1"
 }
 
+# override
 missile_battery = {
 	section = "MISSILE_STARBASE_SECTION"
 	icon = "GFX_starbase_missile_battery"
 	construction_days = 180
+
 	potential = {
 		exists = owner
 		owner = { has_technology = tech_torpedoes_1 }
 		is_orbital_ring = no
 	}
+
 	resources = {
 		category = starbase_modules
-		cost = { alloys = 50 }
-		upkeep = { energy = 1 }
+		cost = {
+			alloys = 50
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
+
 	station_modifier = {
-		ship_hull_mult = 0.01
-		ship_armor_mult = 0.01
+		ship_hull_mult = 0.01															# override
+		ship_armor_mult = 0.01														# override
 		starbase_trade_protection_range_add = 1
 		starbase_trade_protection_add = 5
-		#starbase_defense_platform_capacity_add = 1
+		# starbase_defense_platform_capacity_add = 1			# override
 	}
+
+
+
 	ai_weight = {
-		weight = 100
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
 		modifier = {
 			factor = 2
 			exists = owner
@@ -136,29 +219,39 @@ missile_battery = {
 	show_in_tech = "tech_torpedoes_1"
 }
 
+# override
 hangar_bay = {
 	icon = "GFX_starbase_hangar_bay"
 	section = "HANGAR_STARBASE_SECTION"
 	construction_days = 180
+
 	potential = {
 		exists = owner
 		owner = { has_technology = tech_strike_craft_1 }
 		is_orbital_ring = no
 	}
+
 	resources = {
 		category = starbase_modules
-		cost = { alloys = 50 }
-		upkeep = { energy = 1 }
+		cost = {
+			alloys = 50
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
+
 	station_modifier = {
-		ship_hull_mult = 0.01
-		ship_armor_mult = 0.01
+		ship_hull_mult = 0.01																					# override
+		ship_armor_mult = 0.01																				# override
 		starbase_trade_protection_range_add = 1
 		starbase_trade_protection_add = 10
-		#starbase_defense_platform_capacity_add = 1
+		# starbase_defense_platform_capacity_add = 1									# override
 	}
+
 	ai_weight = {
-		weight = 10
+		weight = 10  																									# override
 		modifier = {
 			factor = 2
 			exists = owner
@@ -168,11 +261,13 @@ hangar_bay = {
 	show_in_tech = "tech_strike_craft_1"
 }
 
+# override
 solar_panel_network = {
 	icon = "GFX_solar_panel_network"
 	section = "REFINERY_STARBASE_SECTION"
 	construction_days = 180
 	initial = yes
+
 	potential = {
 		exists = owner
 		is_orbital_ring = no
@@ -181,6 +276,7 @@ solar_panel_network = {
 			has_technology = "tech_solar_panel_network"
 		}
 	}
+
 	possible = {
 		solar_system = {
 			custom_tooltip = {
@@ -194,15 +290,19 @@ solar_panel_network = {
 			}
 		}
 	}
+
 	show_in_tech = "tech_solar_panel_network"
+
 	resources = {
 		category = starbase_modules
 		cost = {
 			alloys = 50
 		}
+
 		produces = {
 			energy = 6
 		}
+
 		produces = {
 			trigger = {
 				exists = owner
@@ -219,21 +319,59 @@ solar_panel_network = {
 			energy = 6
 		}
 	}
-	ai_build_at_chokepoint = no
-	ai_weight = { weight = 100 }
+
+
+	ai_build_at_chokepoint = no		# override ai_build_at_chokepoint = <yes/no> - If no, AI will avoid building this module at a chokepoint.
+
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+	}
 }
 
+# override
 trading_hub = {
 	icon = "GFX_starbase_trading_hub"
 	section = "REFINERY_STARBASE_SECTION"
 	construction_days = 180
 	initial = yes
-	potential = { exists = owner owner = { is_gestalt = no } is_orbital_ring = no }
-	resources = { category = starbase_modules cost = { alloys = 50 } upkeep = { energy = 1 } }
-	station_modifier = { starbase_trade_collection_range_add = 1 }
-	ai_build_at_chokepoint = no
+
+	potential = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+		}
+		is_orbital_ring = no
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 50
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	station_modifier = {
+		starbase_trade_collection_range_add = 1
+	}
+
+	#triggered_station_modifier = {																			# override
+	#	 potential = {																										# override
+	#		 hidden_trigger = { exists = this }															# override
+	#		 owner = {																											# override
+	#			 has_councilor = { COUNCILOR = "councilor_trading_posts" }		# override
+	#		 }																															# override
+	#	 }																																# override
+	#	 trade_value_add = 0.5																						# override
+	#	 mult = value:councilor_level|TYPE|councilor_trading_posts|				# override
+	#}																																	# override
+
+	ai_build_at_chokepoint = no		# override ai_build_at_chokepoint = <yes/no> - If no, AI will avoid building this module at a chokepoint.
+
 	ai_weight = {
-		weight = 100
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
 		modifier = {
 			factor = 5
 			NOT = { has_starbase_module = trading_hub }
@@ -250,17 +388,50 @@ detection_array = {
 	icon = "GFX_spaceport_module_detecton_array"
 	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
-	potential = { exists = owner owner = { has_technology = tech_detection_array } is_orbital_ring = no }
-	possible = { NOT = { has_starbase_building = dark_matter_listening_post } }
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_detection_array }
+		is_orbital_ring = no
+	}
+
+	possible = {
+		NOT = {
+			has_starbase_building = dark_matter_listening_post
+		}
+	}
+
 	resources = {
 		category = starbase_modules
-		cost = { alloys = 100 }
-		upkeep = { energy = 1 }
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
-	station_modifier = { ship_cloaking_detection_add = 1 }
+
+	station_modifier = {
+		ship_cloaking_detection_add = 1
+	}
+
 	ai_build_at_chokepoint = yes
 	ai_build_outside_chokepoint = yes
-	ai_weight = { weight = 100 modifier = { add = 1000 owner = { NOT = { any_owned_starbase = { has_starbase_module = detection_array } } } } }
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+		modifier = {
+			add = 1000
+			owner = {
+				NOT = {
+					any_owned_starbase = {
+						has_starbase_module = detection_array
+					}
+				}
+			}
+		}
+	}
+
 	show_in_tech = "tech_detection_array"
 }
 
