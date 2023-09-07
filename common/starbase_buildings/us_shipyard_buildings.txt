@@ -1,0 +1,365 @@
+#Dockyard specialization
+shipyard_enhance = {
+	icon = GFX_shipyard_enhance
+	section = "ASSEMBLYYARD_STARBASE_SECTION"
+	construction_days = 720
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_shipyard_enhance
+		}
+	}
+	possible = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = anchorage_enhance
+			has_starbase_building = war_enhance
+			has_starbase_building = hangar_enhance
+			has_starbase_building = sturdy_enhance
+		}
+	}
+
+	station_modifier = {
+		starbase_shipyard_build_speed_mult = 1.5
+		starbase_shipyard_build_cost_mult = -0.20
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 100
+			owner = {
+				OR = {
+					count_owned_starbase = {
+						count = 0
+						limit = { has_starbase_module = shipyard }
+					}
+					AND = {
+						num_starbases >= 4
+						count_owned_starbase = {
+							count < 2
+							limit = { has_starbase_module = shipyard }
+						}
+					}
+					AND = {
+						num_starbases >= 9
+						count_owned_starbase = {
+							count < 3
+							limit = { has_starbase_module = shipyard }
+						}
+					}
+					AND = {
+						num_starbases >= 15
+						count_owned_starbase = {
+							count < 4
+							limit = { has_starbase_module = shipyard }
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			has_starbase_module = shipyard
+			count_starbase_modules = {
+				count < 2
+				type = shipyard
+			}
+		}
+		modifier = {
+			factor = 3
+			has_starbase_module = shipyard
+			count_starbase_modules = {
+				count < 4
+				type = shipyard
+			}
+		}
+	}
+
+	#在科技界面显示解锁部件
+	show_in_tech = "tech_shipyard_enhance"
+}
+
+
+navy_expert_sector = {
+	icon = "GFX_starbase_orbital_engineering"
+	construction_days = 500
+	resources ={
+		category = starbase_buildings
+		cost = { alloys = 250 }
+		produces = { engineering_research = 3 }
+		upkeep = { energy = 3 }
+	}
+	station_modifier = {
+		starbase_modules_cost_mult = -0.20
+		starbase_buildings_cost_mult = -0.20
+		starbase_shipyard_build_cost_mult = -0.20
+	}
+	potential = {
+		has_starbase_size >= starbase_starfortress
+		exists = owner owner = { has_technology = tech_engineering_3 }
+	}
+	possible = { has_starbase_building = orbital_engineering_support_lab  }
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = { factor = 0.01 has_starbase_size < starbase_starfortress }
+		modifier = { factor = 0.01 NAND = { exists = owner owner = { has_technology = tech_engineering_3 } } }
+	}
+	show_in_tech = "tech_engineering_3"
+}
+
+adv_assembly_yard = {
+	icon = "GFX_starbase_adv_assembly_yard"
+	construction_days = 480
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 200 }
+		upkeep = { energy = 2 }
+	}
+	station_modifier = {
+		starbase_shipyard_capacity_add = 2
+		starbase_shipyard_build_speed_mult = 0.85
+	}
+	potential = {
+		has_starbase_module = shipyard
+		has_starbase_size >= starbase_starhold
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 50 modifier = { factor = 0.01 NAND = { has_starbase_module = shipyard has_starbase_size >= starbase_starhold } } }
+}
+
+navy_veteran = {
+	icon = "GFX_starbase_navy_veteran"
+	construction_days = 420
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 175 }
+		upkeep = { energy = 1 }
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.07
+		ship_evasion_mult = 0.20
+	}
+	potential = { exists = owner owner = { has_technology = tech_interstellar_fleet_traditions } }
+	possible = { has_starbase_building = fleet_academy }
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 50 modifier = { factor = 0.01 NAND = { has_starbase_module = shipyard exists = owner owner = { has_technology = tech_interstellar_fleet_traditions } } } }
+	show_in_tech = "tech_interstellar_fleet_traditions"
+}
+
+experienced_crews = {
+	icon = "GFX_starbase_experienced_crew"
+	construction_days = 420
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 175 }
+		upkeep = { energy = 1 }
+	}
+	ship_modifier = {
+		ship_experience_gain_mult = 1.0
+	}
+	potential = { exists = owner owner = { has_technology = tech_interstellar_fleet_traditions } }
+	possible = { has_starbase_building = fleet_academy }
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 50 modifier = { factor = 0.01 NAND = { has_starbase_module = shipyard exists = owner owner = { has_technology = tech_interstellar_fleet_traditions } } } }
+	show_in_tech = "tech_interstellar_fleet_traditions"
+}
+
+corvette_assembly_yard = {
+	icon = "GFX_starbase_corvette_assembly_yard"
+	construction_days = 1080
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 1000 }
+		upkeep = { energy = 8 }
+	}
+	station_modifier = {
+		ship_corvette_cost_mult = -0.20
+		shipsize_corvette_build_speed_mult = 0.75
+	}
+	potential = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = destroyer_assembly_yard
+			has_starbase_building = cruiser_assembly_yard
+			has_starbase_building = battleship_assembly_yard
+		}
+	}
+	possible = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = destroyer_assembly_yard
+			has_starbase_building = cruiser_assembly_yard
+			has_starbase_building = battleship_assembly_yard
+		}
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 0.01
+			OR = {
+				has_starbase_building = destroyer_assembly_yard
+				has_starbase_building = cruiser_assembly_yard
+				has_starbase_building = battleship_assembly_yard
+			}
+		}
+	}
+}
+
+destroyer_assembly_yard = {
+	icon = "GFX_starbase_destroyer_assembly_yard"
+	construction_days = 1080
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 1250 }
+		upkeep = { energy = 8 }
+	}
+	station_modifier = {
+		ship_destroyer_cost_mult = -0.20
+		shipsize_destroyer_build_speed_mult = 0.75
+	}
+	potential = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = corvette_assembly_yard
+			has_starbase_building = cruiser_assembly_yard
+			has_starbase_building = battleship_assembly_yard
+		}
+		exists = owner owner = { has_technology = tech_destroyer_build_speed }
+	}
+	possible = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = corvette_assembly_yard
+			has_starbase_building = cruiser_assembly_yard
+			has_starbase_building = battleship_assembly_yard
+		}
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = { factor = 0.01 NAND = { exists = owner owner = { has_technology = tech_destroyer_build_speed } } }
+		modifier = {
+			factor = 0.01
+			OR = {
+				has_starbase_building = corvette_assembly_yard
+				has_starbase_building = cruiser_assembly_yard
+				has_starbase_building = battleship_assembly_yard
+			}
+		}
+	}
+	show_in_tech = "tech_destroyer_build_speed"
+}
+
+cruiser_assembly_yard = {
+	icon = "GFX_starbase_cruiser_assembly_yard"
+	construction_days = 1080
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 1600 }
+		upkeep = { energy = 8 }
+	}
+	station_modifier = {
+		ship_cruiser_cost_mult = -0.20
+		shipsize_cruiser_build_speed_mult = 0.75
+	}
+	potential = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = corvette_assembly_yard
+			has_starbase_building = destroyer_assembly_yard
+			has_starbase_building = battleship_assembly_yard
+		}
+		exists = owner owner = { has_technology = tech_cruiser_build_speed }
+	}
+	possible = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = corvette_assembly_yard
+			has_starbase_building = destroyer_assembly_yard
+			has_starbase_building = battleship_assembly_yard
+		}
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = { factor = 0.01 NAND = { exists = owner owner = { has_technology = tech_cruiser_build_speed } } }
+		modifier = {
+			factor = 0.01
+			OR = {
+				has_starbase_building = corvette_assembly_yard
+				has_starbase_building = destroyer_assembly_yard
+				has_starbase_building = battleship_assembly_yard
+			}
+		}
+	}
+	show_in_tech = "tech_cruiser_build_speed"
+}
+
+battleship_assembly_yard = {
+	icon = "GFX_starbase_battleship_assembly_yard"
+	construction_days = 1080
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 2000 }
+		upkeep = { energy = 8 }
+	}
+	station_modifier = {
+		ship_battleship_cost_mult = -0.20
+		shipsize_battleship_build_speed_mult = 0.75
+	}
+	potential = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = corvette_assembly_yard
+			has_starbase_building = destroyer_assembly_yard
+			has_starbase_building = cruiser_assembly_yard
+		}
+		exists = owner owner = { has_technology = tech_battleship_build_speed }
+	}
+	possible = {
+		has_starbase_module = shipyard
+		NOR = {
+			has_starbase_building = corvette_assembly_yard
+			has_starbase_building = destroyer_assembly_yard
+			has_starbase_building = cruiser_assembly_yard
+		}
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = { factor = 0.01 NAND = { exists = owner owner = { has_technology = tech_battleship_build_speed } } }
+		modifier = {
+			factor = 0.01
+			OR = {
+				has_starbase_building = corvette_assembly_yard
+				has_starbase_building = destroyer_assembly_yard
+				has_starbase_building = cruiser_assembly_yard
+			}
+		}
+	}
+	show_in_tech = "tech_battleship_build_speed"
+}

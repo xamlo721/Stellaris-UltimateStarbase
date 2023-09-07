@@ -1,144 +1,3 @@
-#The default rule is that buildings can only build one
-
-#Dockyard specialization
-shipyard_enhance = {
-	icon = GFX_shipyard_enhance
-	section = "ASSEMBLYYARD_STARBASE_SECTION"
-	construction_days = 720
-
-	resources = {
-		category = starbase_buildings
-		cost = {
-			alloys = 500
-		}
-		upkeep = {
-			energy = 20
-		}
-	}
-
-	potential = {
-		is_orbital_ring = no
-		exists = owner
-		owner = {
-			has_technology = tech_shipyard_enhance
-		}
-	}
-	possible = {
-		has_starbase_module = shipyard
-		NOR = {
-			has_starbase_building = anchorage_enhance
-			has_starbase_building = war_enhance
-			has_starbase_building = hangar_enhance
-			has_starbase_building = sturdy_enhance
-		}
-	}
-
-	station_modifier = {
-		starbase_shipyard_build_speed_mult = 1.5
-		starbase_shipyard_build_cost_mult = -0.20
-	}
-	ai_build_at_chokepoint = no
-	ai_build_outside_chokepoint = yes
-	ai_weight = {
-		weight = 100
-		modifier = {
-			factor = 100
-			owner = {
-				OR = {
-					count_owned_starbase = {
-						count = 0
-						limit = { has_starbase_module = shipyard }
-					}
-					AND = {
-						num_starbases >= 4
-						count_owned_starbase = {
-							count < 2
-							limit = { has_starbase_module = shipyard }
-						}
-					}
-					AND = {
-						num_starbases >= 9
-						count_owned_starbase = {
-							count < 3
-							limit = { has_starbase_module = shipyard }
-						}
-					}
-					AND = {
-						num_starbases >= 15
-						count_owned_starbase = {
-							count < 4
-							limit = { has_starbase_module = shipyard }
-						}
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 3
-			has_starbase_module = shipyard
-			count_starbase_modules = {
-				count < 2
-				type = shipyard
-			}
-		}
-		modifier = {
-			factor = 3
-			has_starbase_module = shipyard
-			count_starbase_modules = {
-				count < 4
-				type = shipyard
-			}
-		}
-	}
-
-	#在科技界面显示解锁部件
-	show_in_tech = "tech_shipyard_enhance"
-}
-
-#Anchorage specialization
-anchorage_enhance = {
-	icon =GFX_anchorage_enhance
-	section = "ASSEMBLYYARD_STARBASE_SECTION"
-	construction_days = 720
-
-	resources = {
-		category = starbase_buildings
-		cost = {
-			alloys = 400
-		}
-		upkeep = {
-			energy = 5
-		}
-	}
-
-	potential = {
-		is_orbital_ring = no
-		exists = owner
-		owner = {
-			has_technology = tech_anchorage_enhance
-		}
-	}
-
-	possible = {
-		has_starbase_building = naval_logistics_office
-		NOR = {
-			has_starbase_building = shipyard_enhance
-			has_starbase_building = war_enhance
-			has_starbase_building = hangar_enhance
-			has_starbase_building = sturdy_enhance
-		}
-	}
-
-	ai_build_at_chokepoint = no
-	ai_build_outside_chokepoint = yes
-	ai_weight = {
-		weight = 100
-	}
-
-	#在科技界面显示解锁部件
-	show_in_tech = "tech_anchorage_enhance"
-}
-
 #Battery specialization
 war_enhance = {
 	icon = GFX_war_enhance
@@ -192,7 +51,7 @@ war_enhance = {
 		}
 	}
 
-	#在科技界面显示解锁部件
+	#Show unlocked parts in the tech screen
 	#show_in_tech = "tech_war_enhance"
 }
 
@@ -247,70 +106,9 @@ hangar_enhance = {
 		}
 	}
 
-	#在科技界面显示解锁部件
+	#Show unlocked parts in the tech screen
 	#show_in_tech = "tech_war_enhance"
 }
-
-#Defensive specialization
-sturdy_enhance = {
-	icon = GFX_sturdy_enhance
-	construction_days = 720
-
-	resources = {
-		category = starbase_buildings
-		cost = {
-			alloys = 1000
-		}
-		upkeep = {
-			energy = 20
-		}
-	}
-	station_modifier = {
-		ship_armor_mult = 1.0
-		ship_hull_mult = 1.0
-		ship_shield_mult = 1.0
-	}
-
-	potential = {
-		is_orbital_ring = no
-		exists = owner
-		owner = {
-			has_technology = tech_starbase_6
-		}
-	}
-	possible = {
-		NOR = {
-			has_starbase_building = shipyard_enhance
-			has_starbase_building = anchorage_enhance
-			has_starbase_building = war_enhance
-			has_starbase_building = hangar_enhance
-		}
-		has_starbase_size >= starbase_1
-	}
-
-	ai_build_at_chokepoint = yes
-	ai_build_outside_chokepoint = no
-	ai_weight = {
-		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
-		modifier = {
-			factor = 2
-			exists = owner
-			owner = {
-				OR = {
-					is_preferred_weapons = weapon_type_energy
-					is_preferred_weapons = weapon_type_kinetic
-				}
-			}
-		}
-	}
-
-	#在科技界面显示解锁部件
-	show_in_tech = "tech_war_enhance"
-}
-###################
-###################
-###################
-
 
 #Defense platforms +20
 defense_enhance = {
@@ -349,44 +147,6 @@ defense_enhance = {
 	ai_weight = {
 		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
 	}
-}
-
-# Maintenance centers Maintenance fee - 50%
-maintenance_center = {
-	icon = GFX_maintenance_center
-	construction_days = 720
-	potential = {
-		is_orbital_ring = no
-		exists = owner
-		owner = {
-			has_technology = tech_maintenance_center
-		}
-	}
-	possible = {
-		has_starbase_size >= starbase_1
-	}
-	resources = {
-		category = starbase_buildings
-		cost = {
-			alloys = 500
-		}
-
-		upkeep = {
-			energy = 10
-		}
-	}
-
-	orbit_modifier = {
-		ship_orbit_upkeep_mult = -0.5
-	}
-
-	ai_build_at_chokepoint = yes
-	ai_build_outside_chokepoint = yes
-	ai_weight = {
-		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
-	}
-
-	show_in_tech = "tech_maintenance_center"
 }
 
 #phase radar Attack range +300% Tracking +5
@@ -514,91 +274,6 @@ plasma_coldchain  = {
 
 	show_in_tech = "tech_plasma_coldchain"
 }
-
-# Engineering Department
-engineering_department  = {
-	icon = GFX_engineering_department
-	construction_days = 720
-
-	potential = {
-		is_orbital_ring = no
-		exists = owner
-		owner = {
-			has_technology = tech_engineering_department
-		}
-	}
-	possible = {
-		has_starbase_size >= starbase_1
-	}
-	resources = {
-		category = starbase_buildings
-		cost = {
-			alloys = 1000
-		}
-
-		upkeep = {
-			energy = 30
-		}
-	}
-
-	station_modifier = {
-		starbase_defensive_war_ship_build_speed_mult = 1.00
-		starbase_building_build_speed_mult = 1.00
-		starbase_module_build_speed_mult = 1.00
-		starbase_upgrade_speed_mult = 1.00
-	}
-
-	ai_build_at_chokepoint = yes
-	ai_build_outside_chokepoint = no
-	ai_weight = {
-		weight = 100
-	}
-
-	show_in_tech = "tech_engineering_department"
-}
-
-# Repair sector +3% per day
-living_metal_department  = {
-	icon = GFX_living_metal_department
-	construction_days = 900
-
-	potential = {
-		is_orbital_ring = no
-		exists = owner
-		owner = {
-			has_technology = tech_mine_living_metal
-		}
-	}
-	possible = {
-		has_starbase_size >= starbase_1
-	}
-	resources = {
-		category = starbase_buildings
-		cost = {
-			alloys = 2500
-			sr_living_metal = 1000
-		}
-
-		upkeep = {
-			sr_living_metal = 3
-		}
-	}
-
-	station_modifier = {
-		ship_hull_regen_add_perc = 3
-		ship_armor_regen_add_perc = 3
-		ship_shield_regen_add_perc = 3
-	}
-
-	ai_build_at_chokepoint = yes
-	ai_build_outside_chokepoint = no
-	ai_weight = {
-		weight = 100
-	}
-
-	show_in_tech = "tech_mine_living_metal"
-}
-
 
 ##########
 ## halo construction (refers the creation of a halo around the body of the building)
@@ -830,4 +505,24 @@ subspace_energy = {
 	}
 
 	show_in_tech = "tech_subspace_energy"
+}
+
+adv_starbase = {
+	icon = "GFX_starbase_adv_starbase"
+	construction_days = 1000
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 200 }
+		upkeep = { energy = 2 }
+	}
+	station_modifier = {
+		ship_armor_add = 16000
+		ship_fire_rate_mult = 0.25
+		ship_weapon_range_mult = 0.33
+	}
+	potential = { has_starbase_size >= starbase_citadel }
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 50 modifier = { factor = 0.01 has_starbase_size < starbase_citadel } }
+	show_in_tech = "tech_starbase_5"
 }

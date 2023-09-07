@@ -1,0 +1,291 @@
+#Defensive specialization
+sturdy_enhance = {
+	icon = GFX_sturdy_enhance
+	construction_days = 720
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+	station_modifier = {
+		ship_armor_mult = 1.0
+		ship_hull_mult = 1.0
+		ship_shield_mult = 1.0
+	}
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_starbase_6
+		}
+	}
+	possible = {
+		NOR = {
+			has_starbase_building = shipyard_enhance
+			has_starbase_building = anchorage_enhance
+			has_starbase_building = war_enhance
+			has_starbase_building = hangar_enhance
+		}
+		has_starbase_size >= starbase_1
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+		modifier = {
+			factor = 2
+			exists = owner
+			owner = {
+				OR = {
+					is_preferred_weapons = weapon_type_energy
+					is_preferred_weapons = weapon_type_kinetic
+				}
+			}
+		}
+	}
+
+	#在科技界面显示解锁部件
+	show_in_tech = "tech_war_enhance"
+}
+
+# Repair sector +3% per day
+living_metal_department  = {
+	icon = GFX_living_metal_department
+	construction_days = 900
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_mine_living_metal
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 2500
+			sr_living_metal = 1000
+		}
+
+		upkeep = {
+			sr_living_metal = 3
+		}
+	}
+
+	station_modifier = {
+		ship_hull_regen_add_perc = 3
+		ship_armor_regen_add_perc = 3
+		ship_shield_regen_add_perc = 3
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_mine_living_metal"
+}
+
+# Engineering Department
+engineering_department  = {
+	icon = GFX_engineering_department
+	construction_days = 720
+
+	potential = {
+		is_orbital_ring = no
+		exists = owner
+		owner = {
+			has_technology = tech_engineering_department
+		}
+	}
+	possible = {
+		has_starbase_size >= starbase_1
+	}
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+
+		upkeep = {
+			energy = 30
+		}
+	}
+
+	station_modifier = {
+		starbase_defensive_war_ship_build_speed_mult = 1.00
+		starbase_building_build_speed_mult = 1.00
+		starbase_module_build_speed_mult = 1.00
+		starbase_upgrade_speed_mult = 1.00
+	}
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+
+	show_in_tech = "tech_engineering_department"
+}
+
+adv_space_engineers = {
+	icon = "GFX_starbase_adv_space_engineers"
+	construction_days = 180
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 100 }
+		upkeep = { energy = 2 }
+	}
+	station_modifier = {
+		starbase_module_build_speed_mult = 1.50
+		starbase_building_build_speed_mult = 1.50
+		starbase_upgrade_speed_mult = 1.50
+	}
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 100 }
+}
+
+reinforced_defenses = {
+	icon = "GFX_starbase_reinforced_defenses"
+	construction_days = 400
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 150 }
+		upkeep = { energy = 1 }
+	}
+	station_modifier = {
+		ship_shield_add = 6000
+		ship_shield_mult = 0.1
+		ship_shield_regen_add_perc = 1.0
+		ship_armor_add = 10000
+		ship_armor_mult = 0.1
+		ship_armor_regen_add_perc = 1.0
+	}
+	potential = { has_starbase_size >= starbase_starport }#not for outposts
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 50 modifier = { factor = 0.01 has_starbase_size < starbase_starport } }
+}
+
+strategic_defenses = {
+	icon = "GFX_starbase_strategic_defenses"
+	construction_days = 650
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 150 }
+		upkeep = { energy = 1 }
+	}
+	station_modifier = {
+		ship_shield_add = 6000
+		ship_shield_mult = 0.1
+		ship_shield_regen_add_perc = 1.0
+		ship_fire_rate_mult = 0.25
+	}
+	potential = { has_starbase_size >= starbase_starfortress }
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 50 modifier = { factor = 0.01 has_starbase_size < starbase_starfortress } }
+	show_in_tech = "tech_starbase_4"
+}
+
+repair_module = {
+	icon = "GFX_starbase_repair_module"
+	construction_days = 300
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 50 }
+		upkeep = { energy = 1 }
+	}
+	orbit_modifier = {
+		ship_shield_regen_add_perc = 3.0
+		ship_hull_regen_add_perc = 2.0
+		ship_armor_regen_add_perc = 1.0
+	}
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 100 }
+}
+
+ship_disruptor = {
+	icon = "GFX_starbase_ship_disruptor"
+	construction_days = 240
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 75 }
+		upkeep = { energy = 1 }
+	}
+	equipped_component = "STARBASE_AURA_SHIP_DISRUPTOR"
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = { weight = 15 }
+}
+
+ship_amplifier = {
+	icon = "GFX_starbase_ship_amplifier"
+	construction_days = 240
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 75 }
+		upkeep = { energy = 1 }
+	}
+	equipped_component = "STARBASE_AURA_SHIP_AMPLIFIER"
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = { weight = 15 }
+}
+
+emergency_portal = {
+	icon = "GFX_starbase_emergency_portal"
+	construction_days = 720
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 250 }
+		upkeep = { energy = 3 }
+	}
+	potential = {
+		has_starbase_size >= starbase_starhold
+	}
+	country_modifier = { ship_disengage_chance_mult = 0.05 }
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+		modifier = { factor = 0.01 has_starbase_size < starbase_starhold }
+	}
+}
+
+starbase_optimal_systems = {
+	icon = "GFX_starbase_starbase_optimal_systems"
+	construction_days = 720
+	resources = {
+		category = starbase_buildings
+		cost = { alloys = 350 }
+		upkeep = { energy = 3 }
+	}
+	station_modifier = {
+		ship_tracking_add = 10
+		ship_accuracy_add = 15
+		ship_sensor_range_add = 2
+		starbase_defense_platform_capacity_add = 8
+		starbase_trade_collection_range_add = 3
+		starbase_trade_protection_range_add = 2
+		starbase_trade_protection_add = 35
+	}
+	potential = { has_starbase_size >= starbase_citadel }
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = { weight = 50 modifier = { factor = 0.01 has_starbase_size < starbase_citadel } }
+	show_in_tech = "tech_starbase_5"
+}
