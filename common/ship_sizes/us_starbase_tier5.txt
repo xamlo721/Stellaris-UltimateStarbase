@@ -13,9 +13,9 @@ starbase_citadel = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 40000 																	   				# override 20000 --> 40000
-		starbase_module_capacity_add = 21																	# override 6 --> 21
-		starbase_building_capacity_add = 21																# override 4 --> 21
-		starbase_defense_platform_capacity_add = 15
+		starbase_module_capacity_add = 20																	# override 6 --> 21
+		starbase_building_capacity_add = 16																# override 4 --> 21
+		starbase_defense_platform_capacity_add = 18
 		#trade system
 		starbase_trade_collection_range_add = 1
 		starbase_trade_protection_range_add = 1

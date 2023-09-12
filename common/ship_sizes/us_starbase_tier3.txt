@@ -13,9 +13,10 @@ starbase_starhold = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 5000
-		starbase_module_capacity_add = 12	  															# override 4 --> 12
-		starbase_building_capacity_add = 9	  														# override 2 --> 9
+		starbase_module_capacity_add = 10	  															# override 4 --> 12
+		starbase_building_capacity_add = 8	  														# override 2 --> 9
 		starbase_defense_platform_capacity_add = 6
+		#trade system
 		starbase_trade_collection_range_add = 1
 		starbase_trade_protection_range_add = 1
 		starbase_trade_protection_add = 16

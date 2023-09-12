@@ -1,0 +1,401 @@
+﻿l_russian:
+
+ ################################################################
+ #    Unyielding Tradition
+ ################################################################
+ tr_unyielding_resistance_is_frugal_desc:1 "£defense_army£ §Y силы обороны§! Теперь выходы §Y0.5§! £единство£ сплоченность \n§Y$MOD_PLANET_ORBITAL_BOMBARDMENT_DAMAGE$§! Снизить §G-25%§! \n§Y$MOD_ARMY_DEFENSE_HEALTH_MULT$§! Увеличить §G+50%§!"
+
+ tr_unyielding_never_surrender_desc:0 "§Y$MOD_COUNTRY_WAR_EXHAUSTION_MULT$§! увеличится §G-30%§! \n§Y$MOD_COUNTRY_HOSTILE_CLAIM_INFLUENCE_COST_MULT$§! Увеличит §G+30%§! \n получить доступ ко всем §Y$MOD_COUNTRY_HOSTILE_CLAIM_INFLUENCE_CONST_MULT$! Опции исследования".
+
+ tr_unyielding_bulwark_of_harmony_desc:2 "Когда мы ведем оборонительную войну с другой империей, §Y$MOD_STARBASE_SHIPYARD_BUILD_SPEED_MULT$§! будет увеличиваться на §G+50%§! . Кроме того, все линкоры, находящиеся в границах страны с §Y$MOD_SHIP_FIRE_RATE_MULT$§!, увеличатся на §G+15%§! \n разблокировать §Y$POLICY_DEFENSE_DOCTRINE$§! Политика".
+
+ tr_unyielding_defensive_zeal_desc:0 "§Y звездная база§! и §Y защитные платформы§! с §Y стоимостью корпуса§! и §Y уроном§! увеличены на §G33%§!"
+
+
+ ###########
+ #   skill
+ ###########
+
+
+ #Starbase (astronomy)
+ tech_starbase_8:0 "Барьер "Небесный купол"
+ tech_starbase_8_desc:0 "Это одновременно и наша преграда, и клетка для врага, так что злоумышленник, осмелившийся проникнуть в наш дом, подобен марширующему в море песка, не способному продвинуться ни на дюйм".
+ TECH_UNLOCK_STARBASE_1_TITLE:0 "§H Разблокировать обновления космической базы：§! барьер неба"
+ TECH_UNLOCK_STARBASE_1_DESC:0 "Модернизирует Акрополь до барьера Sky Dome. Передовая технология перехвата сверхсветовых скоростей и технология блокирования промышленных масс, значительно снижающая уклонение и скорость противника, способная вместить шесть зданий и полностью поддерживать девять модулей"
+
+ tech_starbase_9:0 "Крепость Бессмертия"
+ tech_starbase_9_desc:0 "При использовании метода вечного строительства наши крепости было бы невообразимо дорого разрушать даже в одиночку".
+ TECH_UNLOCK_STARBASE_2_TITLE:0 "§H Разблокировать обновления космической базы：§! Крепость Бессмертного"
+ TECH_UNLOCK_STARBASE_2_DESC:0 "Модернизация барьера "Скайдом" до "Крепости непокоренных". Галактический Барьерный Полюс использует новейшие технологии генераторов больших щитов и устройств противодействия энергии и представляет собой настоящую Крепость Непостижимого, способную вместить восемь зданий и полностью поддерживать двенадцать модулей."
+
+ tech_starbase_10:0 "Стена вздохов
+ tech_starbase_10_desc:0 "Подобно оборонительным сооружениям Стены Вздохов, где должны обитать призраки и боги без разрешения на проход, ничто не может ступить в эту охраняемую галактику".
+ TECH_UNLOCK_STARBASE_3_TITLE:0 "§H Разблокировать обновления космической базы：§! Стена вздохов"
+ TECH_UNLOCK_STARBASE_3_DESC:0 "Модернизируйте "Непотопляемую крепость" до "Стены вздохов". Стена Вздохов - это технологическая кульминация космической оборонительной войны, способная вместить двенадцать зданий и полностью поддерживать восемнадцать модулей."
+
+
+ #Star Chamber
+ STARBASE_1_SECTION:0 "барьер неба"
+ STARBASE_2_SECTION:0 "Крепость Бессмертия"
+ STARBASE_3_SECTION:0 "Стена вздохов"
+ BATTERY_STARBASE_SECTION_1:0 "Battery MK1"
+ BATTERY_STARBASE_SECTION_2:0 "Battery MK2"
+ BATTERY_STARBASE_SECTION_3:0 "Battery MK3"
+ HANGAR_STARBASE_SECTION_1:0 "Hangar MK1"
+ HANGAR_STARBASE_SECTION_2:0 "Hangar MK2"
+ HANGAR_STARBASE_SECTION_3:0 "Hangar MK3"
+ XL_BATTERY_STARBASE_SECTION_1:0 "XL-MK1"
+ XL_BATTERY_STARBASE_SECTION_2:0 "XL-MK2"
+
+
+
+ #starbase
+ starbase_1:0 "барьер неба"
+ starbase_2:0 "Крепость Бессмертия"
+ starbase_3:0 "Стена вздохов"
+
+
+
+
+ ###########
+ # Starbase module
+ ###########
+
+ sm_gun_battery_1:0 "Battery MK1"
+ sm_gun_battery_1_desc:0 "Добавляет на космическую базу турельный модуль MK1. \n 1 точечная защита, 1 ракета, 2 слота S, 2 слота M."
+ sm_gun_battery_2:0 "Battery MK2"
+ sm_gun_battery_2_desc:0 "Добавляет турельные модули MK2 на космические базы. \n 2 точечной защиты, 2 ракеты, 1 слот S, 3 слота M, 1 слот L."
+ sm_gun_battery_3:0 "Battery MK3"
+ sm_gun_battery_3_desc:0 "Добавляет турельные модули MK3 на космические базы. \n 3 точечной защиты, 3 ракеты, 4 слота M, 2 слота L."
+ sm_xl_battery_1:0 "XL Module MK1"
+ sm_xl_battery_1_desc:0 "Добавить два XL-слота к пространственной базе с ограничением в шесть".
+ sm_xl_battery_2:0 "XL Module MK2"
+ sm_xl_battery_1_desc:0 "Добавляет четыре XL-слота к пространственной базе с ограничением в шесть".
+
+ sm_hangar_bay_1:0 "Ангарный отсек MK1"
+ sm_hangar_bay_1_desc:0 "Добавьте четыре слота H к пространственной базе. "
+ sm_hangar_bay_2:0 "Ангарный отсек  MK2"
+ sm_hangar_bay_2_desc:0 "Добавьте восемь слотов H к пространственной базе".
+ sm_hangar_bay_3:0 "Ангарный отсек MK3"
+ sm_hangar_bay_3_desc:0 "Добавьте пятнадцать слотов H к пространственной базе".
+
+ sm_starbase_shield:0 "Модуль щита"
+ sm_starbase_shield_desc:0 "Увеличивает Spacebase на 30 000 щитов и 1% ежедневной репутации".
+ sm_starbase_armor:0 "Модуль брони"
+ sm_starbase_armor_desc:0 "Увеличивает космическую базу на 30 000 единиц брони и 1% ежедневной прибыли".
+
+
+
+ ###########
+ # Starring Ring Module
+ ###########
+
+ sm_orbital_ring_gun_battery_1:0 "Battery MK1"
+ sm_orbital_ring_gun_battery_1_desc:0 "Добавьте к звездному кольцу турельный модуль MK1".
+ sm_orbital_ring_gun_battery_2:0 "Battery MK2"
+ sm_orbital_ring_gun_battery_2_desc:0 "Добавить турельные модули MK2 к звездному кольцу".
+ sm_orbital_ring_hangar_bay_1:0 "Ангарный отсек MK1"
+ sm_orbital_ring_hangar_bay_1_desc:0 "Добавьте четыре слота H к звездному кольцу".
+ sm_orbital_ring_hangar_bay_2:0 "Ангарный отсек MK2"
+ sm_orbital_ring_hangar_bay_2_desc:0 "Добавьте восемь слотов H к звездному кольцу".
+
+
+
+
+
+ ###########
+ # Starbase Architecture
+ ###########
+
+ sm_shipyard_enhance:0 "Расширение дока"
+ sm_shipyard_enhance_desc:0 "Значительно увеличивает скорость строительства кораблей и снижает производственные затраты".
+ sm_anchorage_enhance:0 "усиление якоря"
+ sm_anchorage_enhance_desc:0 "Добавить четыре дополнительных емкости для флота на якорной стоянке".
+ sm_war_enhance:0 "Дополнительный модуль питания для турелей"
+ sm_war_enhance_desc:0 "Двойной источник питания позволил значительно увеличить башню".
+ sm_hangar_enhance:0 "навигационная платформа"
+ sm_hangar_enhance_desc:0 "Эскадрильи истребителей, имеющие связь в реальном времени со специальным аналитическим подразделением Звездной базы, были бы гораздо мощнее".
+ sm_sturdy_enhance:0 "Защитное отверждение"
+ sm_sturdy_enhance_desc:0 "Более сильная звездная база стоит того, чтобы отказаться от части нашей продукции".
+ sm_defense_enhance:0 "Расширенный вычислительный центр (ECC)"
+ sm_defense_enhance_desc:0 "Благодаря усовершенствованному алгоритму мы теперь можем контролировать большее количество оборонных платформ".
+ sm_maintenance_center:0 "Центр технического обслуживания"
+ sm_maintenance_center_desc:0 "Благодаря наличию независимого отдела технического обслуживания судов, суда, стоящие в порту, получают более качественный уход".
+ sm_phase_radar:0 "фазовый радар"
+ sm_phase_radar_desc:0 "Сканируя фазовые колебания, можно точно определить местоположение нарушителя."
+ sm_particle_chaos:0 "Устройство турбулентности частиц (PTD)"
+ sm_particle_chaos_desc:0 "Нагрузки, разработанные для имитации нейтронных звезд и нейтрализации энергии щита без дискриминации".
+ sm_plasma_coldchain:0 "Технология плазменной холодной цепи"
+ sm_plasma_coldchain_desc:0 "Специальные потоки частиц помогут турелям быстрее остыть".
+ sm_engineering_department:0 "инженерный факультет"
+ sm_engineering_department_desc:0 "Импровизированный инженерный отдел будет центром строительства, обеспечивая необходимую поддержку при возведении звездной базы."
+ sm_living_metal_department:0 "Реактивный металлоремонт"
+ sm_living_metal_department_desc:0 "Использование драгоценных активных металлов значительно ускорит ремонт".
+
+ sm_command_center_enhance:0 "Улучшение командного центра"
+ sm_command_center_enhance_desc:0 "Усиленный эффект командного центра (заменит эффект командного центра)".
+ sm_disruption_field_enhance:0 "Усиление генератора интерференционного поля"
+ sm_disruption_field_enhance_desc:0 "Усиление генератора интерференционного поля (заменяет эффект генератора интерференционного поля)"
+ sm_gravity_edge:0 "гравитационная граница"
+ sm_gravity_edge_desc:0 "вмешивается в гравитационные флуктуации, препятствуя тем самым раскрытию гиперпространственной сети".
+ sm_nebula_fluctuator:0 "флуктуатор туманности"
+ sm_nebula_fluctuator_desc:0 "Имитация туманности приводит к образованию вещества, сильно мешающего навигации корабля".
+ sm_gravity_beacon:0 "гравитационный маяк"
+ sm_gravity_beacon_desc:0 "Тонкие гравитационные изменения будут нашими лучшими навигаторами".
+ sm_subspace_energy:0 "энергия подпространства"
+ sm_subspace_energy_desc:0 "Используйте Зро, чтобы открыть крошечный подпространственный разлом и извлечь энергию для питания щита".
+
+
+ ###########
+ #arur aura
+ ###########
+ STARBASE_AURA_COMMAND_CENTER_1:0 "Улучшение командного центра"
+ aura_starbase_command_center_1:0 "Оборонительная позиция - усиление командного центра"
+
+ STARBASE_AURA_DISRUPTION_FIELD_1:0 "Усиление генератора поля помех"
+ aura_starbase_distruption_field_1:0 "Наступательная позиция - усиление генератора поля помех"
+
+ STARBASE_GRAVITY_EDGE:0 "гравитационная граница"
+ aura_starbase_gravity_edge:0 "Защитная позиция - гравитационные границы"
+
+ STARBASE_NEBULA_FLUCTUATOR:0 "флуктуатор туманности"
+ aura_starbase_nebula_fluctuator:0 "Наступательная позиция - измеритель волатильности туманности"
+
+ STARBASE_GRAVITY_BEACON:0 "гравитационный маяк"
+ aura_starbase_gravity_beacon:0 "Наступательная позиция - гравитационный маяк"
+
+ STARBASE_SUBSPACE_ENERGY:0 "энергия подпространства"
+ aura_starbase_subspace_energy:0 "Наступательная позиция - энергоснабжение подпространства"
+
+ STARBASE_PARTICLE_CHAOS:0 "Устройство турбулентности частиц (PTD)"
+ aura_starbase_particle_chaos:0 "Положение импульса - Колебание импульса"
+
+ #Building technology
+ tech_shipyard_enhance:0 "Усовершенствование дока"
+ tech_shipyard_enhance_desc:0 "Значительно увеличивает скорость строительства кораблей и снижает производственные затраты".
+ tech_anchorage_enhance:0 "Улучшение якорной стоянки"
+ tech_anchorage_enhance_desc:0 "Добавляет четыре дополнительных емкости для флота на якорной стоянке".
+ tech_defense_enhance:0 "расширенная форма вычислений (математика)"
+ tech_defense_enhance_desc:0 "Благодаря усовершенствованному алгоритму мы теперь можем управлять большим количеством оборонных платформ".
+ tech_maintenance_center:0 "Центр технического обслуживания"
+ tech_maintenance_center_desc:0 "С независимым отделом технического обслуживания кораблей, корабли, пришвартованные в порту, получают более качественный уход."
+ tech_phase_radar:0 "фазовый радар"
+ tech_phase_radar_desc:0 "Сканируя фазовые колебания, можно точно определить местоположение нарушителя".
+ tech_particle_chaos:0 "Устройство турбулентности частиц (PTD)"
+ tech_particle_chaos_desc:0 "Нагрузки, разработанные для имитации нейтронных звезд и нейтрализации энергии щита без дискриминации."
+ tech_plasma_coldchain:0 "Технология плазменной холодной цепи"
+ tech_plasma_coldchain_desc:0 "Специальные потоки частиц помогут турелям быстрее остыть".
+ tech_engineering_department:0 "инженерный отдел"
+ tech_engineering_department_desc:0 "Импровизированный инженерный отдел будет центром строительства, обеспечивая необходимую поддержку при возведении звездной базы."
+
+ tech_command_matrix_1:0 "Усовершенствование командного центра"
+ tech_command_matrix_1_desc:0 "Усиление эффектов командного центра".
+ tech_disruption_field_enhance:0 "Усиление генератора интерференционного поля"
+ tech_disruption_field_enhance_desc:0 "Усиление генератора поля помех"
+ tech_gravity_edge:0 "гравитационная граница"
+ tech_gravity_edge_desc:0 "вмешивается в гравитационные флуктуации, препятствуя тем самым раскрытию гиперпространственной сети."
+ tech_nebula_fluctuator:0 "флуктуатор туманности"
+ tech_nebula_fluctuator_desc:0 "Имитируя туманность, создает материю, которая сильно мешает навигации корабля".
+ tech_gravity_beacon:0 "гравитационный маяк"
+ tech_gravity_beacon_desc:0 "Тонкие гравитационные изменения будут нашими лучшими навигаторами".
+ tech_subspace_energy:0 "энергия подпространства"
+ tech_subspace_energy_desc:0 "Используйте Zelo, чтобы открыть крошечный подпространственный разлом и извлечь энергию для питания щита".
+ tech_build_boost:0 "Продвинутые технологии строительства"
+ tech_build_boost_desc:0 "Более научное планирование графика строительства - это кусочек головоломки, завершающей космическую программу".
+
+
+
+ ###########
+ # Starbase Weapon Slot
+ ###########
+
+ STARBASE_DARK_MATTER_REACTOR_1:0 "Реактор темной материи Бастиона"
+ STARBASE_COMBAT_COMPUTER_A:0 "Эффективный командный тип 1"
+ STARBASE_COMBAT_COMPUTER_B:0 "Эффективный командный тип 2"
+
+
+ ###########
+ # weaponry
+ ###########
+ ES_ARC_EMITTER_1: "Fusion Arc Launcher"
+ ES_ARC_EMITTER_2: "Fusion Arc Launcher"
+
+ ###########
+ # soar
+ ###########
+ requires_technology_starbase_5:0 "$TRIGGER_FAIL$ необходимо £emgineering£§Y$tech_starbase_5$§!"
+ requires_unyielding_finish:0 "$TRIGGER_FAIL$Необходимость выполнения нерушимой традиции！"
+ us_optimise_building:0 "Млечный путь"
+ us_optimise_building_desc:0 "Посреди этой темной вселенной, где народы с подозрением относятся друг к другу, прочные барьеры наших границ являются гарантией нашего выживания."
+ add_research_options_galgxy_barrier:0 "Доступ к опциям исследования:\n£engineering_research£§Y$tech_starbase_10$§!\n Выстроить звездную стену."
+ # us_optimise_building:0 "The sky barrier"
+
+
+ ###########
+ # deal
+ ###########
+
+ policy_defense_doctrine:0 "Руководящие принципы обороны"
+ policy_defense_doctrine_desc:0 "Мы можем превратить в поле боя любую планету или даже астероид в звездном поле, а можем в отчаянии перенести поле боя на территорию противника, и у нас должно быть четкое суждение о том, как защищаться от контратак."
+ home_territory_defense:0 "лучше умереть, чем покориться"
+ home_territory_defense_desc:0 "Невозможно отступить ни на дюйм земли".
+ attack_defense:0 "Наступательная оборона"
+ attack_defense_desc:0 "Нападение - лучшая защита, даже если это означает потерю значительной территории".
+ moren:0 "Нет критериев защиты"
+ moren_desc:0 "Остается неизменным".
+
+
+
+
+
+##################
+
+ starbase_stronghold: "твердыня"
+ starbase_stronghold_plural: "Стронгхолды"
+ starbase_headquarters: "Штаб"
+ starbase_headquarters_plural: "Штаб-квартиры звездных баз"
+
+ mod_station_researchers_physics_research_produces_mult: "Выходные данные исследовательской станции "Физика" £физика"
+ mod_station_researchers_society_research_produces_mult: "Исследовательская станция "Общество" £society Output"
+ mod_station_researchers_engineering_research_produces_mult: "Исследовательская станция Инженерная £инженерная продукция"
+
+ starbase_extended_upgrade_test: "Starbase Extended - Upgrade Test".
+ starbase_extended_upgrade_test_desc: "Пользовательский модификатор только для моддинга, чтобы проверить, способен ли ИИ модернизировать звездную базу или нет".
+
+ sm_shield_module:0 "Генератор щитов".
+ sm_shield_module_desc:0 "Добавляет больше щитов на звездную базу.\n"
+ sm_armor_module:0 "Защита брони"
+ sm_armor_module_desc:0 "Добавляет больше брони на звездную базу.\n"
+ sm_pd_battery:0 "Система точечной защиты"
+ sm_pd_battery_desc:0 "Добавляет два слота точечной защиты на звездную базу.\n"
+ sm_large_battery:0 "Большая батарея"
+ sm_large_battery_desc:0 "Добавляет один слот для крупного оружия на звездную базу.\n"
+ sm_xl_battery:0 "Очень большая батарея"
+ sm_xl_battery_desc:0 "Добавляет один большой слот для оружия на звездную базу.\n"
+ sm_titanic_battery:0 "Батарея Титаника"
+ sm_titanic_battery_desc:0 "Добавляет один слот для титанического оружия на Starbase.\n"
+ sm_trader_bay:0 "Залив продовольственного рынка".
+ sm_trader_bay_desc:0 "Построить рыночную бухту, улучшающую торговлю в системе".
+ sm_adv_space_engineers:0 "Продвинутые космические инженеры"
+ sm_adv_space_engineers_desc:0 "Набирайте продвинутых космических инженеров, которые помогут быстрее строить новые здания и модули звездной базы.\n"
+ sm_asteroid_mining:0 "Команда по добыче астероидов".
+ sm_asteroid_mining_desc:0 "Запустите команду шахтеров для добычи небольших астероидов в системе, которые слишком малы, чтобы их могла добывать шахтерская станция. Наличие §GAsteroid Mining Experts§! повысит добычу на §Y2 Minerals§!  £minerals.\n"
+ sm_mining_experts:0 "Эксперты по добыче астероидов"
+ sm_mining_experts_desc:0 "Набирайте экспертов, помогающих добывать астероиды, улучшая производительность каждой команды по добыче астероидов. Улучшит производительность каждой команды §GAsteroid Mining Team§! на §Y2 Minerals§! £minerals.\n"
+ sm_reinforced_defenses:0 "Усиленная оборона звездной базы"
+ sm_reinforced_defenses_desc:0 "Улучшить щиты и броню звездной базы.\n"
+ sm_strategic_defenses:0 "Стратегическая оборона звездной базы"
+ sm_strategic_defenses_desc:0 "Улучшить щиты и вооружение звездной базы.\n"
+ sm_adv_starbase:0 "Усовершенствованная защита звездной базы"
+ sm_adv_starbase_desc:0 "Улучшить броню и оружие звездной базы.\n"
+ sm_orbital_lab:0 "Лаборатория орбитальных исследований"
+ sm_orbital_lab_desc:0   "Исследовательская лаборатория на орбите. Наличие §GSupport Lab§! улучшит результаты исследований.\n"
+ sm_energy_collector:0   "Коллектор энергии"
+ sm_energy_collector_desc:0  "Специальный модуль, собирающий энергию от звезды.\n"
+ sm_orbital_physics_support_lab:0  "Лаборатория физической поддержки".
+ sm_orbital_physics_support_lab_desc:0   "Лаборатория поддержки, улучшающая исследования в области физики. Улучшает результаты каждой §GOrbital Research Lab§! на §Y2 Physics Research§!\n".
+ sm_orbital_society_support_lab:0  "Лаборатория поддержки общества"
+ sm_orbital_society_support_lab_desc:0   "Лаборатория поддержки, улучшающая исследования в области общества. Улучшает результаты каждой §GOrbital Research Lab§! на §Y2 Society Research§!\n".
+ sm_orbital_engineering_support_lab:0  "Лаборатория инженерной поддержки"
+ sm_orbital_engineering_support_lab_desc:0   "Лаборатория поддержки, улучшающая исследования в инженерной области. Улучшает результаты каждой §GOrbital Research Lab§! на §Y2 Engineering Research§!\n".
+ sm_navy_expert_sector:0   "Сектор экспертов ВМФ"
+ sm_navy_expert_sector_desc:0  "Конструирование кораблей, платформ и модулей с меньшими затратами.\n"
+ sm_adv_assembly_yard:0  "Передовая сборочная верфь"
+ sm_adv_assembly_yard_desc:0   "Улучшение военно-морского производства.\n"
+ sm_experienced_crews:0  "Каюты опытных экипажей"
+ sm_experienced_crews_desc: "Увеличивает опыт, получаемый после каждого боя.\n"
+ sm_navy_veteran: "Каюта ветеранов ВМФ"
+ sm_navy_veteran_desc: "Повышение эффективности кораблей, построенных в этой системе.\n"
+ sm_advanced_military_program: "Передовая военная программа".
+ sm_advanced_military_program_desc: "Улучшить скорость набора новых войск в системе.\n"
+ sm_space_power_plant: "Орбитальная электростанция"
+ sm_space_power_plant_desc: "Электростанция на орбите вокруг звездной базы, вырабатывающая энергию.\n"
+ sm_repair_module: "Ремонтные платформы"
+ sm_repair_module_desc: "Добавьте ремонтные платформы вокруг звездной базы для быстрого обслуживания и ремонта кораблей.\n"
+ sm_tile_blocker_cleaner: "Команда по очистке плитки".
+ sm_tile_blocker_cleaner_desc: "Размещает в системе команду экспертов, специализирующихся на удалении планетарных блокираторов плитки.\n"
+ sm_space_foundry: "Космическая литейная мастерская"
+ sm_space_foundry_desc: "Космический литейный завод перерабатывает минералы в сплавы. Наличие §GChain Manufacturing§! повысит производительность на §Y1 Alloy§!  £сплавов.\n".
+ sm_space_factory: "Космическая фабрика"
+ sm_space_factory_desc: "Космическая фабрика перерабатывает минералы в потребительские товары. Наличие §GChain Manufacturing§! повысит производительность на §Y2 Consumer Goods§!  £consumer_goods.\n".
+ sm_security_branch_office: "Филиал службы безопасности"
+ sm_security_branch_office_desc: "Секьюрити-филиал будет заниматься защитой ваших торговых путей от местного пиратства".
+ sm_administration_office: "Административный офис".
+ sm_administration_office_desc: "Административный офис - это специальное здание звездной базы, которое позволяет увеличить административный потенциал страны."
+ sm_synthetic_crystal_fabricator: "Фабрикант синтетических кристаллов".
+ sm_synthetic_crystal_fabricator_desc: "Превращает минералы в редкие кристаллы благодаря особым условиям в космосе".
+ sm_synthetic_volatile_motes_fabricator: "Изготовитель синтетических летучих мотыльков".
+ sm_synthetic_volatile_motes_fabricator_desc: "Превращает минералы в летучие мотыльки благодаря особым условиям в космосе".
+ sm_synthetic_gase_fabricator: "Фабрикант синтетических газов".
+ sm_synthetic_gase_fabricator_desc: "Превращает минералы в экзотические газы благодаря особым условиям в космосе".
+ sm_orbital_assembly: "Орбитальная сборка".
+ sm_orbital_assembly_desc: "Создает популяции роботов на звездной базе и перебрасывает их в колонии системы".
+ sm_chain_manufacturing: "Цепное производство".
+ sm_chain_manufacturing_desc: "Помогает в производстве сплавов и товаров народного потребления как в космосе, так и на планете. Улучшает производительность каждого §GSpace Foundry§! на §Y1 Alloy§!  £сплавов и §GSpace Factory§! на §Y2 Consumer Goods§!  £потребительские_товары.\n"
+ sm_construction_planificator: "Планировщик строительства"
+ sm_construction_planificator_desc: "Создает схемы зданий, чтобы ускорить строительство зданий, дискриптов и проектов на планетах системы."
+ sm_financial_space_center: "Финансовый космический центр".
+ sm_financial_space_center_desc: "Повышение торговой стоимости системы благодаря помощи финансовых экспертов".
+ sm_terraforming_module: "Секция терраформирования"
+ sm_terraforming_module_desc: "Посылайте команды терраформеров, чтобы повысить обитаемость местных колоний в системе".
+ sm_stasis_chambers: "Стазис-камеры".
+ sm_stasis_chambers_desc: "Усилить рост местного населения, присутствующего в системе".
+ sm_emergency_portal: "Экстренный портал"
+ sm_emergency_portal_desc: "Аварийный портал, координаты которого должны быть записаны каждым пилотом флота, чтобы увеличить шансы на выживание в случае аварийного прыжка".
+ sm_starbase_optimal_systems: "Оптимальные системы звездной базы".
+ sm_starbase_optimal_systems_desc: "Передовая технология для систем звездной базы, позволяющая сделать ее намного эффективнее".
+ sm_market_computers: "Орбитальное агентство"
+ sm_market_computers_desc: "Орбитальное агентство, помогающее в развитии колоний в системе".
+ sm_stellar_housing: "Stellar Housings".
+ sm_stellar_housing_desc: "Размещает орбитальные дома вокруг колоний, чтобы немного увеличить население колоний, присутствующих в системе."
+ sm_administration_computers: "Административные компьютеры".
+ sm_administration_computers_desc: "Развертывает автоматические протоколы, помогающие управляющему колонией выполнять основную задачу по повышению стабильности."
+ sm_research_computers: "Исследовательские компьютеры".
+ sm_research_computers_desc: "Размещает исследовательские станции на орбите вокруг колоний, позволяя создавать больше рабочих мест для исследователей."
+ sm_ship_disruptor: "Разрушитель кораблей"
+ sm_ship_disruptor_desc: "Специальный разрушитель, предназначенный для снижения эффективности вражеских кораблей".
+ sm_ship_amplifier: "Усилитель корабля"
+ sm_ship_amplifier_desc: "Специальный разрушитель, предназначенный для повышения эффективности дружественных кораблей".
+ sm_spy_command_post: "Командный пункт шпиона".
+ sm_spy_command_post_desc: "Командный пункт, предназначенный для увеличения объема разведданных в соседних системах".
+ sm_corvette_assembly_yard: "Автоматизированная сборочная площадка корветов".
+ sm_corvette_assembly_yard_desc: "Автоматизированная сборочная верфь, специализирующаяся на строительстве корветов. Может иметь только одну категорию автоматизированной сборочной площадки".
+ sm_destroyer_assembly_yard: "Автоматизированная сборочная верфь разрушителей".
+ sm_destroyer_assembly_yard_desc:0 "Автоматизированная сборочная верфь, специализирующаяся на строительстве Разрушителей. Может иметь только одну категорию автоматизированной сборочной верфи".
+ sm_cruiser_assembly_yard:0 "Автоматизированная сборочная верфь крейсеров".
+ sm_cruiser_assembly_yard_desc:0 "Автоматизированная сборочная верфь, специализирующаяся на строительстве крейсеров. Может иметь только одну категорию автоматизированной сборочной верфи".
+ sm_battleship_assembly_yard:0 "Автоматизированная сборочная верфь линкоров".
+ sm_battleship_assembly_yard_desc:0 "Автоматизированная сборочная верфь, специализирующаяся на строительстве линкоров. Может иметь только одну категорию автоматизированной сборочной верфи".
+ sm_crew_formation_modules:0 "Модуль формирования экипажа".
+ sm_crew_formation_modules_desc:0 "Специальная секция звездной базы, занимающаяся глубоким формированием новых членов экипажа звездной базы, что позволяет им размещаться на нашей территории для улучшения обслуживания других звездных баз."
+
+ tech_starbase_8:0 "Звездная база Stronghold"
+ tech_starbase_8_desc:0 "Stronghold - это мощная и высокотехнологичная станция системной обороны."
+ TECH_UNLOCK_STRONGHOLD_CONSTRUCTION_TITLE:0 "§HUnlocks Starbase Upgrade:§! Солнечная твердыня".
+ TECH_UNLOCK_STRONGHOLD_CONSTRUCTION_DESC:0 "§HSolar Stronghold§!\nЭто не луна, это космическая станция."
+
+ tech_starbase_9:0 "Звездная база "Штаб""
+ tech_starbase_9_desc:0 "Последняя модернизация в цепочке звездных баз, штаб-квартира - это конечная станция управления и обороны."
+ TECH_UNLOCK_HEADQUARTERS_CONSTRUCTION_TITLE:0 "§HUnlocks Starbase Upgrade:§! Штаб-квартира"
+ TECH_UNLOCK_HEADQUARTERS_CONSTRUCTION_DESC:0 "§HHHeadquarters§!\nПожалуй, одно из самых безопасных мест в Галактике."
+
+ POINT_DEFENCE_STARBASE:0 "Автоматизированная система обороны"
+ POINT_DEFENCE_STARBASE_DESC:0 ""
+ PERDITION_BEAM_STARBASE:0 "Атомно-фазовый дезинтегратор"
+ PERDITION_BEAM_STARBASE_DESC:0 ""
+ XL_BEAM_STARBASE:0 "Модулятор поляризованных электронов"
+ XL_BEAM_STARBASE_DESC:0 ""
+ CITADEL_DARK_MATTER_REACTOR:0 "Реактор темной материи"
+ CITADEL_DARK_MATTER_REACTOR_DESC:0 ""
+ STARBASE_AURA_SHIP_DISRUPTOR:0 "Разрушитель кораблей"
+ STARBASE_AURA_SHIP_AMPLIFIER:0 "Усилитель корабля"
+ aura_starbase_ship_disruptor:0 "$offensive_aura$ - $sm_ship_disruptor$"
+ aura_starbase_ship_amplifier:0 "$defensive_aura$ - $sm_ship_amplifier$"
+
+ TITANIC_STARBASE_SECTION: "Секция Титаника"
+ EXTRA_LARGE_STARBASE_SECTION: "Секция XL"
+ LARGE_STARBASE_SECTION: "Большая секция"
+ PD_STARBASE_SECTION: "Секция точечной обороны"
+ HANGAR_STARBASE_SECTION: "Секция ангара"
+ MISSILE_STARBASE_SECTION: "Ракетная секция"
+ BATTERY_STARBASE_SECTION: "Средняя секция"

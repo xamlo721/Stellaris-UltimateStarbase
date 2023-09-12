@@ -18,18 +18,28 @@
 
 
  #Starbase (astronomy)
- tech_starbase_6:0 "Sky Dome Barrier"
- tech_starbase_6_desc:0 "It is both our barrier and the enemy's cage, so that the intruder who dares to break into our home is like marching forward in a sea of sand, unable to move an inch."
+  #tech_starbase_6:0 "Sky Dome Barrier"
+  #tech_starbase_6_desc:0 "It is both our barrier and the enemy's cage, so that the intruder who dares to break into our home is like marching forward in a sea of sand, unable to move an inch."
+  #TECH_UNLOCK_STARBASE_STRONGHOLD_TITLE:0 "§HUnlock space base upgrades：§!the barrier of the sky"
+  #TECH_UNLOCK_STARBASE_STRONGHOLD_DESC:0 "Upgrades the Acropolis to a Sky Dome Barrier. Advanced FTL interception technology and industrial mass blocking technology, greatly reducing enemy evasion and speed, capable of housing six buildings and fully supporting nine modules"
+
+  #tech_starbase_7:0 "Fortress of the Undying"
+  #tech_starbase_7_desc:0 "Taking a perpetualized construction method, our fortresses would be unimaginably costly to destroy even by themselves."
+  #TECH_UNLOCK_STARBASE_HEADQUARTERS_TITLE:0 "§HUnlock space base upgrades：§!Fortress of the Undying"
+  #TECH_UNLOCK_STARBASE_HEADQUARTERS_DESC:0 "Upgrade the Skydome Barrier to a Fortress of the Unfallen. The Galactic Barrier Pole utilizes the latest in large shield generator technology and energy counteracting device technology, and is a veritable Fortress of the Unfallen, capable of housing eight buildings and fully supporting twelve modules."
+
+ tech_starbase_8:0 "Sky Dome Barrier"
+ tech_starbase_8_desc:0 "It is both our barrier and the enemy's cage, so that the intruder who dares to break into our home is like marching forward in a sea of sand, unable to move an inch."
  TECH_UNLOCK_STARBASE_1_TITLE:0 "§HUnlock space base upgrades：§!the barrier of the sky"
  TECH_UNLOCK_STARBASE_1_DESC:0 "Upgrades the Acropolis to a Sky Dome Barrier. Advanced FTL interception technology and industrial mass blocking technology, greatly reducing enemy evasion and speed, capable of housing six buildings and fully supporting nine modules"
 
- tech_starbase_7:0 "Fortress of the Undying"
- tech_starbase_7_desc:0 "Taking a perpetualized construction method, our fortresses would be unimaginably costly to destroy even by themselves."
+ tech_starbase_9:0 "Fortress of the Undying"
+ tech_starbase_9_desc:0 "Taking a perpetualized construction method, our fortresses would be unimaginably costly to destroy even by themselves."
  TECH_UNLOCK_STARBASE_2_TITLE:0 "§HUnlock space base upgrades：§!Fortress of the Undying"
  TECH_UNLOCK_STARBASE_2_DESC:0 "Upgrade the Skydome Barrier to a Fortress of the Unfallen. The Galactic Barrier Pole utilizes the latest in large shield generator technology and energy counteracting device technology, and is a veritable Fortress of the Unfallen, capable of housing eight buildings and fully supporting twelve modules."
 
- tech_starbase_8:0 "Wall of Sighs"
- tech_starbase_8_desc:0 "Like the defenses of the Wall of Sighs, where ghosts and gods must reside without permission to pass, nothing can set foot in this guarded galaxy."
+ tech_starbase_10:0 "Wall of Sighs"
+ tech_starbase_10_desc:0 "Like the defenses of the Wall of Sighs, where ghosts and gods must reside without permission to pass, nothing can set foot in this guarded galaxy."
  TECH_UNLOCK_STARBASE_3_TITLE:0 "§HUnlock space base upgrades：§!Wall of Sighs"
  TECH_UNLOCK_STARBASE_3_DESC:0 "Upgrade the Unfallen Fortress to the Wall of Sighs. The Wall of Sighs is the technological culmination of space defense warfare, capable of housing twelve buildings and fully supporting eighteen modules."
 
@@ -223,11 +233,12 @@
  ###########
  # soar
  ###########
- requires_technology_starbase_7:0 "$TRIGGER_FAIL$need£engineering£§Y$tech_starbase_7$§!"
+ requires_technology_starbase_5:0 "$TRIGGER_FAIL$need£engineering£§Y$tech_starbase_5$§!"
  requires_unyielding_finish:0 "$TRIGGER_FAIL$The need to fulfill an indomitable tradition！"
- ap_galgxy_barrier:0 "Milky Way"
- ap_galgxy_barrier_desc:0 "In the midst of this dark universe, where nations are suspicious of each other, the strong barriers of our borders are a guarantee of our survival."
- add_research_options_galgxy_barrier:0 "Access to research options:\n£engineering_research£§Y$tech_starbase_8$§!\n Cast a starry wall."
+ us_optimise_building:0 "Milky Way"
+ us_optimise_building_desc:0 "In the midst of this dark universe, where nations are suspicious of each other, the strong barriers of our borders are a guarantee of our survival."
+ add_research_options_galgxy_barrier:0 "Access to research options:\n£engineering_research£§Y$tech_starbase_10$§!\n Cast a starry wall."
+ # us_optimise_building:0 "The sky barrier"
 
 
  ###########
@@ -368,13 +379,13 @@
  sm_crew_formation_modules: "Crew Formation Module"
  sm_crew_formation_modules_desc:"A special section of the Starbase focusing on the deep formation of new Starbase crew member allowing them to deploy in our territority in order to improve the maintenance of other starbases."
 
- tech_starbase_6: "Stronghold Starbase"
- tech_starbase_6_desc: "The Stronghold is a powerful and highly advanced system defense station."
+ tech_starbase_8: "Stronghold Starbase"
+ tech_starbase_8_desc: "The Stronghold is a powerful and highly advanced system defense station."
  TECH_UNLOCK_STRONGHOLD_CONSTRUCTION_TITLE: "§HUnlocks Starbase Upgrade:§! Solar Stronghold"
  TECH_UNLOCK_STRONGHOLD_CONSTRUCTION_DESC: "§HSolar Stronghold§!\nThat's no moon, it's a space station."
 
- tech_starbase_7: "Headquarters Starbase"
- tech_starbase_7_desc: "The final upgrade in the starbase chain, the Headquarters is the ultimate command and defense station."
+ tech_starbase_9: "Headquarters Starbase"
+ tech_starbase_9_desc: "The final upgrade in the starbase chain, the Headquarters is the ultimate command and defense station."
  TECH_UNLOCK_HEADQUARTERS_CONSTRUCTION_TITLE: "§HUnlocks Starbase Upgrade:§! Headquarters"
  TECH_UNLOCK_HEADQUARTERS_CONSTRUCTION_DESC: "§HHeadquarters§!\nProbably one of the safest place of the Galaxy."
 

@@ -14,14 +14,14 @@ starbase_2 = {
 		ship_evasion_mult = -1
 		ship_armor_add = 180000
 		ship_shield_add = 180000
-		starbase_module_capacity_add = 24
-		starbase_building_capacity_add = 14
-		starbase_defense_platform_capacity_add = 50
+		starbase_module_capacity_add = 40
+		starbase_building_capacity_add = 32
+		starbase_defense_platform_capacity_add = 512
 		#trade system
 		starbase_trade_collection_range_add = 2
 		starbase_trade_protection_range_add = 2
-		starbase_trade_protection_add = 50
-		ship_sensor_range_add = 1
+		starbase_trade_protection_add = 400
+		ship_sensor_range_add = 5
 	}
 	ship_modifier = {
 		ship_fire_rate_mult = 0.90
@@ -64,6 +64,29 @@ starbase_2 = {
 		"10" = { locator = "part6" }
 		"11" = { locator = "part7" }
 		"12" = { locator = "part7" }
+		"13" = { locator = "part2" }
+		"14" = { locator = "part3" }
+		"15" = { locator = "part4" }
+		"16" = { locator = "part5" }
+		"17" = { locator = "part6" }
+		"18" = { locator = "part7" }
+		"19" = { locator = "part5" }
+		"20" = { locator = "part5" }
+		"21" = { locator = "part6" }
+		"22" = { locator = "part6" }
+		"23" = { locator = "part7" }
+		"24" = { locator = "part7" }
+		"25" = { locator = "part7" }
+		"26" = { locator = "part5" }
+		"27" = { locator = "part5" }
+		"28" = { locator = "part6" }
+		"29" = { locator = "part6" }
+		"30" = { locator = "part7" }
+		"31" = { locator = "part7" }
+		"32" = { locator = "part2" }
+		"33" = { locator = "part2" }
+		"34" = { locator = "part6" }
+		"35" = { locator = "part3" }
 	}
 	is_designable = no
 	num_target_locators = 0
@@ -71,14 +94,14 @@ starbase_2 = {
 	is_space_station = no
 	can_have_federation_design = no
 	is_civilian = no
-	components_add_to_cost = no
+	components_add_to_cost = yes
 	can_disable = yes
 	flip_control_on_disable = yes
 
 	#Whether to generate designs by default
 	enable_default_design = yes
 	enable_3dview_in_ship_browser = yes #if yes, ship design will have a 3d view in the ship browser
-	prerequisites = { "tech_starbase_7" }
+	prerequisites = { "tech_starbase_9" }
 	class = shipclass_starbase
 
 	required_component_set = "power_core"

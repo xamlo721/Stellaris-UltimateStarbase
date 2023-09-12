@@ -2,7 +2,7 @@
 weapon_component_template = {
     key = "ES_ARC_EMITTER_1"
     size = extra_large
-    type = instant
+#    type = instant
 
     icon = "GFX_ship_part_arc_emitter_1"
     icon_frame = 1

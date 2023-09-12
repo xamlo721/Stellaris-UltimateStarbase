@@ -13,8 +13,8 @@ starbase_starfortress = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 20000	 																					# override 10000 --> 20000
-		starbase_module_capacity_add = 16 															  # override 6 --> 16
-		starbase_building_capacity_add = 3														    # override 6 --> 14
+		starbase_module_capacity_add = 15 															  # override 6 --> 16
+		starbase_building_capacity_add = 12														    # override 6 --> 14
 		starbase_defense_platform_capacity_add = 12
 		#trade system
 		starbase_trade_collection_range_add = 1

@@ -21,7 +21,7 @@ war_enhance = {
 		is_orbital_ring = no
 		exists = owner
 		owner = {
-			has_technology = tech_starbase_6
+			has_technology = tech_starbase_8
 		}
 	}
 
@@ -77,7 +77,7 @@ hangar_enhance = {
 		is_orbital_ring = no
 		exists = owner
 		owner = {
-			has_technology = tech_starbase_6
+			has_technology = tech_starbase_8
 		}
 	}
 	possible = {

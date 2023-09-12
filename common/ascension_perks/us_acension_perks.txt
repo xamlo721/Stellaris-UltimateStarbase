@@ -1,36 +1,38 @@
-ms_optimise_building = {
+us_optimise_building = {
 	possible = {
 		# Number of ascension >0
 		custom_tooltip = {
 			fail_text = "requires_ascension_perks_1"
-			num_ascension_perks > 3
+			num_ascension_perks > 2
 		}
 		# Completing the Unyielding Tradition
 		custom_tooltip = {
 			fail_text = "requires_unyielding_finish"
 			has_tradition = tr_unyielding_finish
 		}
-		#	Possesses class 7 satellite-based technology
+		#	Possesses class 5 satellite-based technology
 		custom_tooltip = {
-			fail_text = "requires_technology_starbase_7"
-			has_technology = tech_starbase_7
+			fail_text = "requires_technology_starbase_5"
+			has_technology = tech_starbase_5
 		}
 	}
 
 	on_enabled = {
 		add_research_option = tech_starbase_8		# Add Starbase Technology
+		add_research_option = tech_starbase_9		# Add Starbase Technology
+		add_research_option = tech_starbase_10		# Add Starbase Technology
 	}
 
 	modifier = {
 		# starbase_upgrade_cost_mult = -0.25
-		# starbase_upgrade_speed_mult = 0.50
+		starbase_upgrade_speed_mult = 0.50
 		# starbases_upkeep_mult = -0.2
 		intel_encryption_add = 5
 	}
 
 	potential = {
 		NOT = {
-			has_ascension_perk = ms_optimise_building
+			has_ascension_perk = us_optimise_building
 		}
 	}
 
