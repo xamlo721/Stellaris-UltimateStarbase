@@ -6,15 +6,19 @@ tech_starbase_6 = {
 	cost = 40000
 	area = engineering
 	tier = 5
+	is_rare = yes
+	is_reverse_engineerable = no
 	category = { voidcraft }
 	prerequisites = {"tech_starbase_5" }
+	weight = @tier5weight2
+
 	potential = {
 		exists = owner
 		owner = {
 			has_ascension_perk = us_optimise_building
 		}
 	}
-	weight = @tier5weight2
+
 	prereqfor_desc = {
 		ship = {
 			title = "TECH_UNLOCK_STARBASE_STRONGHOLD_TITLE"
@@ -22,8 +26,19 @@ tech_starbase_6 = {
 		}
 	}
 	weight_modifier = {
-		modifier = { factor = 10 any_neighbor_country = { has_technology = tech_starbase_8 } }
-		modifier = { factor = 1.25 research_leader = { area = engineering has_trait = "leader_trait_expertise_voidcraft" } }
+		modifier = {
+			factor = 10
+			any_neighbor_country = {
+				has_technology = tech_starbase_8
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
 		modifier = {
 			factor = 0.1
 			NOT = { years_passed > 20 }
